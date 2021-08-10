@@ -40,6 +40,8 @@ namespace Frequency_Analysis_Of_Ciphers
             this.lbLanguageSelection = new System.Windows.Forms.Label();
             this.cbSorting = new System.Windows.Forms.ComboBox();
             this.lbSorting = new System.Windows.Forms.Label();
+            this.btSaveSelection = new System.Windows.Forms.Button();
+            this.btClearSavedSelection = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbIN
@@ -53,15 +55,14 @@ namespace Frequency_Analysis_Of_Ciphers
             // 
             // tvVyskytVTextu
             // 
-            this.tvVyskytVTextu.HideSelection = false;
             this.tvVyskytVTextu.Location = new System.Drawing.Point(687, 13);
             this.tvVyskytVTextu.Name = "tvVyskytVTextu";
             this.tvVyskytVTextu.Size = new System.Drawing.Size(194, 606);
             this.tvVyskytVTextu.TabIndex = 1;
+            this.tvVyskytVTextu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvVyskytVTextu_AfterSelect);
             // 
             // tvObecnyVyskyt
             // 
-            this.tvObecnyVyskyt.HideSelection = false;
             this.tvObecnyVyskyt.Location = new System.Drawing.Point(909, 13);
             this.tvObecnyVyskyt.Name = "tvObecnyVyskyt";
             treeNode4.Name = "letters";
@@ -76,6 +77,7 @@ namespace Frequency_Analysis_Of_Ciphers
             treeNode6});
             this.tvObecnyVyskyt.Size = new System.Drawing.Size(176, 606);
             this.tvObecnyVyskyt.TabIndex = 2;
+            this.tvObecnyVyskyt.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvObecnyVyskyt_AfterSelect);
             // 
             // tbOut
             // 
@@ -132,11 +134,33 @@ namespace Frequency_Analysis_Of_Ciphers
             this.lbSorting.TabIndex = 7;
             this.lbSorting.Text = "Sorting";
             // 
+            // btSaveSelection
+            // 
+            this.btSaveSelection.Location = new System.Drawing.Point(520, 103);
+            this.btSaveSelection.Name = "btSaveSelection";
+            this.btSaveSelection.Size = new System.Drawing.Size(111, 44);
+            this.btSaveSelection.TabIndex = 8;
+            this.btSaveSelection.Text = "Save selection";
+            this.btSaveSelection.UseVisualStyleBackColor = true;
+            this.btSaveSelection.Click += new System.EventHandler(this.btSaveSelection_Click);
+            // 
+            // btClearSavedSelection
+            // 
+            this.btClearSavedSelection.Location = new System.Drawing.Point(520, 154);
+            this.btClearSavedSelection.Name = "btClearSavedSelection";
+            this.btClearSavedSelection.Size = new System.Drawing.Size(111, 39);
+            this.btClearSavedSelection.TabIndex = 9;
+            this.btClearSavedSelection.Text = "Clear Saved Selections";
+            this.btClearSavedSelection.UseVisualStyleBackColor = true;
+            this.btClearSavedSelection.Click += new System.EventHandler(this.btClearSavedSelection_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1097, 631);
+            this.Controls.Add(this.btClearSavedSelection);
+            this.Controls.Add(this.btSaveSelection);
             this.Controls.Add(this.lbSorting);
             this.Controls.Add(this.cbSorting);
             this.Controls.Add(this.lbLanguageSelection);
@@ -162,6 +186,8 @@ namespace Frequency_Analysis_Of_Ciphers
         private System.Windows.Forms.Label lbLanguageSelection;
         private System.Windows.Forms.ComboBox cbSorting;
         private System.Windows.Forms.Label lbSorting;
+        private System.Windows.Forms.Button btSaveSelection;
+        private System.Windows.Forms.Button btClearSavedSelection;
     }
 }
 

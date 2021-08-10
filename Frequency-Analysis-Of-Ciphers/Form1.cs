@@ -15,16 +15,19 @@ namespace Frequency_Analysis_Of_Ciphers
 
     public partial class Form1 : Form
     {
-        TreeViewFiller treeViewFiller;
         FrequencyCalculator frequencyCalculator;
         LanguageFrequency languageFrequency;
+        LetterChanger letterChanger;
         static int VALIDATION_DELAY = 500;
+        private TreeNode _lastSelectedNode1 = null;
+        private TreeNode _lastSelectedNode2 = null;
         System.Threading.Timer timer = null;
         public Form1()
         {
             InitializeComponent(); 
             frequencyCalculator = new FrequencyCalculator(tvVyskytVTextu);
             languageFrequency = new LanguageFrequency(tvObecnyVyskyt);
+            letterChanger = new LetterChanger(tvVyskytVTextu,tvObecnyVyskyt,tbIN,tbOut);
             tbIN.ScrollBars = ScrollBars.Vertical;
             tbOut.ScrollBars = ScrollBars.Vertical;
             cbSelectLanguage.SelectedIndex = 0;
@@ -102,6 +105,47 @@ namespace Frequency_Analysis_Of_Ciphers
                 frequencyCalculator.sortByPercentage();
             }
         }
+
+        private void tvObecnyVyskyt_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+           _lastSelectedNode1 = NodeHiglight(e,_lastSelectedNode1);
+            if (tvVyskytVTextu.SelectedNode != null)
+            {
+                letterChanger.LetterChange();
+            }
+        }
+        private TreeNode NodeHiglight(TreeViewEventArgs e,TreeNode _lastSelectedNode)
+        {
+            // Select new node
+            e.Node.BackColor = SystemColors.Highlight;
+            e.Node.ForeColor = SystemColors.HighlightText;
+            if (_lastSelectedNode != null)
+            {
+                // Deselect old node
+                _lastSelectedNode.BackColor = SystemColors.Window;
+                _lastSelectedNode.ForeColor = SystemColors.WindowText;
+            }
+            return e.Node;
+        }
+
+        private void tvVyskytVTextu_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            _lastSelectedNode2 = NodeHiglight(e,_lastSelectedNode2);
+            if (tvObecnyVyskyt.SelectedNode != null)
+            {
+                letterChanger.LetterChange();
+            }
+        }
+
+        private void btSaveSelection_Click(object sender, EventArgs e)
+        {
+            letterChanger.saveSelection();
+        }
+
+        private void btClearSavedSelection_Click(object sender, EventArgs e)
+        {
+            letterChanger.ClearSavedSelections();
+        }
     }
     public static class Extensions
     {
@@ -114,4 +158,5 @@ namespace Frequency_Analysis_Of_Ciphers
                 del(control);
         }
     }
+
 }
