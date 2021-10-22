@@ -82,10 +82,10 @@ namespace Frequency_Analysis_Of_Ciphers
             // 
             // tbOut
             // 
-            this.tbOut.Location = new System.Drawing.Point(12, 344);
+            this.tbOut.Location = new System.Drawing.Point(12, 306);
             this.tbOut.Multiline = true;
             this.tbOut.Name = "tbOut";
-            this.tbOut.Size = new System.Drawing.Size(441, 275);
+            this.tbOut.Size = new System.Drawing.Size(441, 313);
             this.tbOut.TabIndex = 3;
             // 
             // cbSelectLanguage
