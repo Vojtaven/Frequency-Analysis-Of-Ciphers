@@ -29,9 +29,9 @@ namespace Frequency_Analysis_Of_Ciphers
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Písmena");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Biagramy");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Triagramy");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Písmena");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Biagramy");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Triagramy");
             this.tbIN = new System.Windows.Forms.TextBox();
             this.tvVyskytVTextu = new System.Windows.Forms.TreeView();
             this.tvObecnyVyskyt = new System.Windows.Forms.TreeView();
@@ -42,6 +42,7 @@ namespace Frequency_Analysis_Of_Ciphers
             this.lbSorting = new System.Windows.Forms.Label();
             this.btSaveSelection = new System.Windows.Forms.Button();
             this.btClearSavedSelection = new System.Windows.Forms.Button();
+            this.TvLetterChanged = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // tbIN
@@ -55,27 +56,27 @@ namespace Frequency_Analysis_Of_Ciphers
             // 
             // tvVyskytVTextu
             // 
-            this.tvVyskytVTextu.Location = new System.Drawing.Point(687, 13);
+            this.tvVyskytVTextu.Location = new System.Drawing.Point(851, 27);
             this.tvVyskytVTextu.Name = "tvVyskytVTextu";
-            this.tvVyskytVTextu.Size = new System.Drawing.Size(194, 606);
+            this.tvVyskytVTextu.Size = new System.Drawing.Size(114, 592);
             this.tvVyskytVTextu.TabIndex = 1;
             this.tvVyskytVTextu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvVyskytVTextu_AfterSelect);
             // 
             // tvObecnyVyskyt
             // 
-            this.tvObecnyVyskyt.Location = new System.Drawing.Point(909, 13);
+            this.tvObecnyVyskyt.Location = new System.Drawing.Point(971, 27);
             this.tvObecnyVyskyt.Name = "tvObecnyVyskyt";
-            treeNode4.Name = "letters";
-            treeNode4.Text = "Písmena";
-            treeNode5.Name = "Biagrams";
-            treeNode5.Text = "Biagramy";
-            treeNode6.Name = "Triagrams";
-            treeNode6.Text = "Triagramy";
+            treeNode1.Name = "letters";
+            treeNode1.Text = "Písmena";
+            treeNode2.Name = "Biagrams";
+            treeNode2.Text = "Biagramy";
+            treeNode3.Name = "Triagrams";
+            treeNode3.Text = "Triagramy";
             this.tvObecnyVyskyt.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5,
-            treeNode6});
-            this.tvObecnyVyskyt.Size = new System.Drawing.Size(176, 606);
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            this.tvObecnyVyskyt.Size = new System.Drawing.Size(114, 592);
             this.tvObecnyVyskyt.TabIndex = 2;
             this.tvObecnyVyskyt.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvObecnyVyskyt_AfterSelect);
             // 
@@ -154,11 +155,19 @@ namespace Frequency_Analysis_Of_Ciphers
             this.btClearSavedSelection.UseVisualStyleBackColor = true;
             this.btClearSavedSelection.Click += new System.EventHandler(this.btClearSavedSelection_Click);
             // 
+            // TvLetterChanged
+            // 
+            this.TvLetterChanged.Location = new System.Drawing.Point(731, 27);
+            this.TvLetterChanged.Name = "TvLetterChanged";
+            this.TvLetterChanged.Size = new System.Drawing.Size(114, 592);
+            this.TvLetterChanged.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1097, 631);
+            this.Controls.Add(this.TvLetterChanged);
             this.Controls.Add(this.btClearSavedSelection);
             this.Controls.Add(this.btSaveSelection);
             this.Controls.Add(this.lbSorting);
@@ -188,6 +197,7 @@ namespace Frequency_Analysis_Of_Ciphers
         private System.Windows.Forms.Label lbSorting;
         private System.Windows.Forms.Button btSaveSelection;
         private System.Windows.Forms.Button btClearSavedSelection;
+        private System.Windows.Forms.TreeView TvLetterChanged;
     }
 }
 

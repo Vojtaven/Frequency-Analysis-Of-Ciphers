@@ -10,15 +10,26 @@ namespace Frequency_Analysis_Of_Ciphers
 {
     class FrequencyCalculator
     {
-
+        TextBox tbIN;
+        TreeView tvVyskytVTextu;
         private List<letterfre> letterCount = new List<letterfre>();
         private List<letterfre> letterFrequency = new List<letterfre>();
         private int allLetterCount = 0;
         private bool Alphabetically = true;
         TreeViewFiller treeViewFiller;
-        public FrequencyCalculator(TreeView tvfrequencyInText)
+        public FrequencyCalculator(TreeView tvfrequencyInText, TextBox tbIN, TreeView tvVyskytVTextu)
         {
-            treeViewFiller = new TreeViewFiller(tvfrequencyInText);
+            treeViewFiller = new TreeViewFiller(tvfrequencyInText); 
+            this.tbIN = tbIN;
+             this.tvVyskytVTextu= tvVyskytVTextu;
+        }
+
+        public void StartCalculations()
+        {
+            clearList();
+            FindLetterCount(tbIN.Text);
+            calculateFrequency();
+            FrequencyTreeViewFiller(tvVyskytVTextu);
         }
         public void FindLetterCount(string text) 
         {

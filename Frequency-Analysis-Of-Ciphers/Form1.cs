@@ -25,9 +25,9 @@ namespace Frequency_Analysis_Of_Ciphers
         public Form1()
         {
             InitializeComponent(); 
-            frequencyCalculator = new FrequencyCalculator(tvVyskytVTextu);
+            frequencyCalculator = new FrequencyCalculator(tvVyskytVTextu,tbIN,tvVyskytVTextu);
             languageFrequency = new LanguageFrequency(tvObecnyVyskyt);
-            letterChanger = new LetterChanger(tvVyskytVTextu,tvObecnyVyskyt,tbIN,tbOut);
+            letterChanger = new LetterChanger(tvVyskytVTextu,tvObecnyVyskyt,TvLetterChanged,tbIN,tbOut);
             tbIN.ScrollBars = ScrollBars.Vertical;
             tbOut.ScrollBars = ScrollBars.Vertical;
             cbSelectLanguage.SelectedIndex = 0;
@@ -37,6 +37,7 @@ namespace Frequency_Analysis_Of_Ciphers
         private void tbIN_TextChanged(object sender, EventArgs e)
         {
             TextBox origin = sender as TextBox;
+            //Čeká než uživatel přestane psát do boxu
             if (!origin.ContainsFocus)
                 return;
 
@@ -46,6 +47,7 @@ namespace Frequency_Analysis_Of_Ciphers
         }
         private void TimerElapsed(Object obj)
         {
+            // Provede příkaz a odhodí timer
             CheckSyntaxAndReport();
             DisposeTimer();
         }
@@ -60,28 +62,19 @@ namespace Frequency_Analysis_Of_Ciphers
         }
 
         private void CheckSyntaxAndReport()
-        {
+        { 
+            //Příkaz
             string tempText = "";
             this.Invoke(new Action(() =>
             {
-                foreach (char item in tbIN.Text)
-                {
-                    if (char.IsLetter(item))
-                        tempText += '*';
-                    else
-                        tempText += item;
-
-                }
-                tbOut.Text = tempText;
-            frequencyCalculator.clearList();
-            frequencyCalculator.FindLetterCount(tbIN.Text);
-            frequencyCalculator.calculateFrequency();
-            frequencyCalculator.FrequencyTreeViewFiller(tvVyskytVTextu);
+            letterChanger.ChangeTextBox();
+            frequencyCalculator.StartCalculations();
             }
             ));
 
         }
 
+        //Mění jazyk
         private void cbSelectLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             string temp = cbSelectLanguage.Text;
@@ -92,6 +85,7 @@ namespace Frequency_Analysis_Of_Ciphers
             }
         }
 
+        //Mění řazení
         private void cbSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbSorting.SelectedIndex == 0)
@@ -106,6 +100,7 @@ namespace Frequency_Analysis_Of_Ciphers
             }
         }
 
+        //Zvýrazní označený kořen
         private void tvObecnyVyskyt_AfterSelect(object sender, TreeViewEventArgs e)
         {
            _lastSelectedNode1 = NodeHiglight(e,_lastSelectedNode1);
@@ -114,6 +109,8 @@ namespace Frequency_Analysis_Of_Ciphers
                 letterChanger.LetterChange();
             }
         }
+
+        //Funkce na zvýraznění
         private TreeNode NodeHiglight(TreeViewEventArgs e,TreeNode _lastSelectedNode)
         {
             // Select new node
@@ -128,6 +125,7 @@ namespace Frequency_Analysis_Of_Ciphers
             return e.Node;
         }
 
+        //Zvýrazní označený kořen
         private void tvVyskytVTextu_AfterSelect(object sender, TreeViewEventArgs e)
         {
             _lastSelectedNode2 = NodeHiglight(e,_lastSelectedNode2);
