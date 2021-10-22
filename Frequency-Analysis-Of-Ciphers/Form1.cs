@@ -15,6 +15,7 @@ namespace Frequency_Analysis_Of_Ciphers
 
     public partial class Form1 : Form
     {
+        TreeViewFiller treeViewFiller = new TreeViewFiller();
         FrequencyCalculator frequencyCalculator;
         LanguageFrequency languageFrequency;
         LetterChanger letterChanger;
@@ -103,7 +104,7 @@ namespace Frequency_Analysis_Of_Ciphers
         //Zvýrazní označený kořen
         private void tvObecnyVyskyt_AfterSelect(object sender, TreeViewEventArgs e)
         {
-           _lastSelectedNode1 = NodeHiglight(e,_lastSelectedNode1);
+           _lastSelectedNode1 = NodeHiglight(e.Node,_lastSelectedNode1);
             if (tvVyskytVTextu.SelectedNode != null)
             {
                 letterChanger.LetterChange();
@@ -111,30 +112,31 @@ namespace Frequency_Analysis_Of_Ciphers
         }
 
         //Funkce na zvýraznění
-        private TreeNode NodeHiglight(TreeViewEventArgs e,TreeNode _lastSelectedNode)
+        private TreeNode NodeHiglight(TreeNode e,TreeNode _lastSelectedNode)
         {
             // Select new node
-            e.Node.BackColor = SystemColors.Highlight;
-            e.Node.ForeColor = SystemColors.HighlightText;
+            e.BackColor = SystemColors.Highlight;
+            e.ForeColor = SystemColors.HighlightText;
             if (_lastSelectedNode != null)
             {
                 // Deselect old node
                 _lastSelectedNode.BackColor = SystemColors.Window;
                 _lastSelectedNode.ForeColor = SystemColors.WindowText;
             }
-            return e.Node;
+            return e;
         }
 
         //Zvýrazní označený kořen
         private void tvVyskytVTextu_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            _lastSelectedNode2 = NodeHiglight(e,_lastSelectedNode2);
+            _lastSelectedNode2 = NodeHiglight(e.Node,_lastSelectedNode2);
             if (tvObecnyVyskyt.SelectedNode != null)
             {
                 letterChanger.LetterChange();
             }
         }
 
+        
         private void btSaveSelection_Click(object sender, EventArgs e)
         {
             letterChanger.saveSelection();
@@ -143,6 +145,14 @@ namespace Frequency_Analysis_Of_Ciphers
         private void btClearSavedSelection_Click(object sender, EventArgs e)
         {
             letterChanger.ClearSavedSelections();
+        }
+
+        private void TvLetterChanged_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TreeNode temp = TvLetterChanged.SelectedNode;
+            tvVyskytVTextu.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[0], tvVyskytVTextu);
+            tvObecnyVyskyt.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[5], tvObecnyVyskyt);
+            letterChanger.LetterChange();
         }
     }
     public static class Extensions

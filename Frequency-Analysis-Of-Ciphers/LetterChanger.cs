@@ -10,12 +10,12 @@ namespace Frequency_Analysis_Of_Ciphers
 {
     class LetterChanger
     {
-        List<letterfre> listOfChangedLetters = new List<letterfre>();
+        List<changedLetter> listOfChangedLetters = new List<changedLetter>();
         TreeViewFiller treeViewFiller;
 
         TreeView tvOriginalLetter;
         TreeView tvChangingLetter;
-       // TreeView TvLetterChanged;
+        TreeView TvLetterChanged;
 
         TextBox tbIn;
         TextBox tbOut;
@@ -24,14 +24,14 @@ namespace Frequency_Analysis_Of_Ciphers
         private char selectedOriginalLetter;
         private char selectedChangingLetter;
 
-        public LetterChanger(TreeView tvOriginalLetter,TreeView tvChangingLetter,TreeView TvLetterChanged, TextBox tbIn,TextBox tbOut) 
+        public LetterChanger(TreeView tvOriginalLetter, TreeView tvChangingLetter, TreeView TvLetterChanged, TextBox tbIn, TextBox tbOut)
         {
-            //this.TvLetterChanged = TvLetterChanged;
+            this.TvLetterChanged = TvLetterChanged;
             this.tvOriginalLetter = tvOriginalLetter;
             this.tvChangingLetter = tvChangingLetter;
             this.tbIn = tbIn;
             this.tbOut = tbOut;
-           // treeViewFiller = new TreeViewFiller(TvLetterChanged);
+            treeViewFiller = new TreeViewFiller(TvLetterChanged);
         }
         public void LetterChange()
         {
@@ -39,7 +39,7 @@ namespace Frequency_Analysis_Of_Ciphers
             selectedChangingLetter = tvChangingLetter.SelectedNode.Text[0];
             ChangeTextBox();
         }
-        public void ChangeTextBox() 
+        public void ChangeTextBox()
         {
             string tempText = "";
             string textIn = RemoveDiacritics(tbIn.Text);
@@ -57,7 +57,7 @@ namespace Frequency_Analysis_Of_Ciphers
             }
             tbOut.Text = tempText;
         }
-        public void saveSelection() 
+        public void saveSelection()
         {
             if (selectedChangingLetter != char.MinValue)   //Ověří že se nejedná o špatný znak
             {
@@ -70,20 +70,35 @@ namespace Frequency_Analysis_Of_Ciphers
                         {
                             if (listOfChangedLetters[i].originalLetter == selectedOriginalLetter)
                             {
-                                addToList = false;
-                                listOfChangedLetters[i].changingLetter = selectedChangingLetter;
+                                if (addToList)
+                                {
+                                    addToList = false;
+                                    listOfChangedLetters[i].changingLetter = selectedChangingLetter;
+                                }
+                                else
+                                {
+                                    listOfChangedLetters.RemoveAt(i);
+                                }
+
                             }
                             else if (listOfChangedLetters[i].changingLetter == selectedChangingLetter)
                             {
-                                addToList = false;
-                                listOfChangedLetters[i].originalLetter = selectedOriginalLetter;
+                                if (addToList)
+                                {
+                                    addToList = false;
+                                    listOfChangedLetters[i].originalLetter = selectedOriginalLetter;
+                                }
+                                else
+                                {
+                                    listOfChangedLetters.RemoveAt(i);
+                                }
                             }
                         }
                     }
 
 
                     if (addToList)
-                        listOfChangedLetters.Add(new letterfre(selectedOriginalLetter, selectedChangingLetter));
+                        listOfChangedLetters.Add(new changedLetter(selectedOriginalLetter, selectedChangingLetter));
 
                     selectedOriginalLetter = char.MinValue;
                     selectedChangingLetter = char.MinValue;
@@ -92,15 +107,15 @@ namespace Frequency_Analysis_Of_Ciphers
                 }
             }
         }
-        private void changeSavedOrinalLetterString() 
+        private void changeSavedOrinalLetterString()
         {
             savedOriginalLetters = "";
-            foreach (letterfre item in listOfChangedLetters)
+            foreach (changedLetter item in listOfChangedLetters)
             {
                 savedOriginalLetters += item.originalLetter;
             }
         }
-        public void ClearSavedSelections() 
+        public void ClearSavedSelections()
         {
             savedOriginalLetters = "";
             listOfChangedLetters.Clear();
@@ -123,19 +138,10 @@ namespace Frequency_Analysis_Of_Ciphers
 
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
-        private void ChangeTvContent() 
+        private void ChangeTvContent()
         {
-            //treeViewFiller.TreeViewFill(listOfChangedLetters);
+            treeViewFiller.TreeViewFill(listOfChangedLetters);
         }
     }
-    class changedLetter
-    {
-        public char originalLetter;
-        public char changingLetter;
-        public changedLetter(char originalLetter,char changingLetter)
-        {
-            this.changingLetter = changingLetter;
-            this.originalLetter = originalLetter;
-        }
-    }
+
 }

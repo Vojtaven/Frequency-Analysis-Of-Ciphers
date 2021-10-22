@@ -29,9 +29,9 @@ namespace Frequency_Analysis_Of_Ciphers
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Písmena");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Biagramy");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Triagramy");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Písmena");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Biagramy");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Triagramy");
             this.tbIN = new System.Windows.Forms.TextBox();
             this.tvVyskytVTextu = new System.Windows.Forms.TreeView();
             this.tvObecnyVyskyt = new System.Windows.Forms.TreeView();
@@ -43,14 +43,19 @@ namespace Frequency_Analysis_Of_Ciphers
             this.btSaveSelection = new System.Windows.Forms.Button();
             this.btClearSavedSelection = new System.Windows.Forms.Button();
             this.TvLetterChanged = new System.Windows.Forms.TreeView();
+            this.lbChangedLetters = new System.Windows.Forms.Label();
+            this.lbTextFrequency = new System.Windows.Forms.Label();
+            this.lbLanguageFrequency = new System.Windows.Forms.Label();
+            this.lbOutputText = new System.Windows.Forms.Label();
+            this.lbInputText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbIN
             // 
-            this.tbIN.Location = new System.Drawing.Point(12, 13);
+            this.tbIN.Location = new System.Drawing.Point(12, 22);
             this.tbIN.Multiline = true;
             this.tbIN.Name = "tbIN";
-            this.tbIN.Size = new System.Drawing.Size(441, 275);
+            this.tbIN.Size = new System.Drawing.Size(441, 266);
             this.tbIN.TabIndex = 0;
             this.tbIN.TextChanged += new System.EventHandler(this.tbIN_TextChanged);
             // 
@@ -66,26 +71,26 @@ namespace Frequency_Analysis_Of_Ciphers
             // 
             this.tvObecnyVyskyt.Location = new System.Drawing.Point(971, 27);
             this.tvObecnyVyskyt.Name = "tvObecnyVyskyt";
-            treeNode1.Name = "letters";
-            treeNode1.Text = "Písmena";
-            treeNode2.Name = "Biagrams";
-            treeNode2.Text = "Biagramy";
-            treeNode3.Name = "Triagrams";
-            treeNode3.Text = "Triagramy";
+            treeNode7.Name = "letters";
+            treeNode7.Text = "Písmena";
+            treeNode8.Name = "Biagrams";
+            treeNode8.Text = "Biagramy";
+            treeNode9.Name = "Triagrams";
+            treeNode9.Text = "Triagramy";
             this.tvObecnyVyskyt.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
+            treeNode7,
+            treeNode8,
+            treeNode9});
             this.tvObecnyVyskyt.Size = new System.Drawing.Size(114, 592);
             this.tvObecnyVyskyt.TabIndex = 2;
             this.tvObecnyVyskyt.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvObecnyVyskyt_AfterSelect);
             // 
             // tbOut
             // 
-            this.tbOut.Location = new System.Drawing.Point(12, 306);
+            this.tbOut.Location = new System.Drawing.Point(12, 311);
             this.tbOut.Multiline = true;
             this.tbOut.Name = "tbOut";
-            this.tbOut.Size = new System.Drawing.Size(441, 313);
+            this.tbOut.Size = new System.Drawing.Size(441, 308);
             this.tbOut.TabIndex = 3;
             // 
             // cbSelectLanguage
@@ -161,12 +166,63 @@ namespace Frequency_Analysis_Of_Ciphers
             this.TvLetterChanged.Name = "TvLetterChanged";
             this.TvLetterChanged.Size = new System.Drawing.Size(114, 592);
             this.TvLetterChanged.TabIndex = 10;
+            this.TvLetterChanged.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TvLetterChanged_AfterSelect);
+            // 
+            // lbChangedLetters
+            // 
+            this.lbChangedLetters.AutoSize = true;
+            this.lbChangedLetters.Location = new System.Drawing.Point(731, 9);
+            this.lbChangedLetters.Name = "lbChangedLetters";
+            this.lbChangedLetters.Size = new System.Drawing.Size(81, 13);
+            this.lbChangedLetters.TabIndex = 11;
+            this.lbChangedLetters.Text = "Changed letters";
+            // 
+            // lbTextFrequency
+            // 
+            this.lbTextFrequency.AutoSize = true;
+            this.lbTextFrequency.Location = new System.Drawing.Point(851, 8);
+            this.lbTextFrequency.Name = "lbTextFrequency";
+            this.lbTextFrequency.Size = new System.Drawing.Size(78, 13);
+            this.lbTextFrequency.TabIndex = 12;
+            this.lbTextFrequency.Text = "Text frequency";
+            // 
+            // lbLanguageFrequency
+            // 
+            this.lbLanguageFrequency.AutoSize = true;
+            this.lbLanguageFrequency.Location = new System.Drawing.Point(971, 7);
+            this.lbLanguageFrequency.Name = "lbLanguageFrequency";
+            this.lbLanguageFrequency.Size = new System.Drawing.Size(108, 13);
+            this.lbLanguageFrequency.TabIndex = 13;
+            this.lbLanguageFrequency.Text = "Language drequency";
+            // 
+            // lbOutputText
+            // 
+            this.lbOutputText.AutoSize = true;
+            this.lbOutputText.Location = new System.Drawing.Point(12, 295);
+            this.lbOutputText.Name = "lbOutputText";
+            this.lbOutputText.Size = new System.Drawing.Size(59, 13);
+            this.lbOutputText.TabIndex = 14;
+            this.lbOutputText.Text = "Output text";
+            // 
+            // lbInputText
+            // 
+            this.lbInputText.AutoSize = true;
+            this.lbInputText.Location = new System.Drawing.Point(12, 6);
+            this.lbInputText.Name = "lbInputText";
+            this.lbInputText.Size = new System.Drawing.Size(51, 13);
+            this.lbInputText.TabIndex = 15;
+            this.lbInputText.Text = "Input text";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1097, 631);
+            this.Controls.Add(this.lbInputText);
+            this.Controls.Add(this.lbOutputText);
+            this.Controls.Add(this.lbLanguageFrequency);
+            this.Controls.Add(this.lbTextFrequency);
+            this.Controls.Add(this.lbChangedLetters);
             this.Controls.Add(this.TvLetterChanged);
             this.Controls.Add(this.btClearSavedSelection);
             this.Controls.Add(this.btSaveSelection);
@@ -198,6 +254,11 @@ namespace Frequency_Analysis_Of_Ciphers
         private System.Windows.Forms.Button btSaveSelection;
         private System.Windows.Forms.Button btClearSavedSelection;
         private System.Windows.Forms.TreeView TvLetterChanged;
+        private System.Windows.Forms.Label lbChangedLetters;
+        private System.Windows.Forms.Label lbTextFrequency;
+        private System.Windows.Forms.Label lbLanguageFrequency;
+        private System.Windows.Forms.Label lbOutputText;
+        private System.Windows.Forms.Label lbInputText;
     }
 }
 
