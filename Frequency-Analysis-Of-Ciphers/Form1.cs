@@ -13,7 +13,7 @@ using System.Threading;
 namespace Frequency_Analysis_Of_Ciphers
 {
 
-    public partial class Form1 : Form
+    public partial class mainForm : Form
     {
         TreeViewFiller treeViewFiller = new TreeViewFiller();
         FrequencyCalculator frequencyCalculator;
@@ -23,7 +23,7 @@ namespace Frequency_Analysis_Of_Ciphers
         private TreeNode _lastSelectedNode1 = null;
         private TreeNode _lastSelectedNode2 = null;
         System.Threading.Timer timer = null;
-        public Form1()
+        public mainForm()
         {
             InitializeComponent(); 
             frequencyCalculator = new FrequencyCalculator(tvVyskytVTextu,tbIN,tvVyskytVTextu);
@@ -153,6 +153,17 @@ namespace Frequency_Analysis_Of_Ciphers
             tvVyskytVTextu.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[0], tvVyskytVTextu);
             tvObecnyVyskyt.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[5], tvObecnyVyskyt);
             letterChanger.LetterChange();
+        }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btClearSelectedLetterCouple_Click(object sender, EventArgs e)
+        {
+            letterChanger.RemoveLetterCouple(TvLetterChanged.SelectedNode.Text);
+            TvLetterChanged.SelectedNode.Remove();
         }
     }
     public static class Extensions

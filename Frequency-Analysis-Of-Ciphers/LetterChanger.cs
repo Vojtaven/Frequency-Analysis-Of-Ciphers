@@ -122,6 +122,19 @@ namespace Frequency_Analysis_Of_Ciphers
             ChangeTextBox();
             ChangeTvContent();
         }
+
+        public void RemoveLetterCouple(string coupleToRemove)
+        {
+            for (int i = 0; i < listOfChangedLetters.Count; i++)
+            {
+                if (coupleToRemove == listOfChangedLetters[i].ToString())
+                {
+                    listOfChangedLetters.RemoveAt(i);
+                    changeSavedOrinalLetterString();
+                    break;
+                }
+            }
+        }
         private string RemoveDiacritics(string text)
         {
             var normalizedString = text.Normalize(NormalizationForm.FormD);

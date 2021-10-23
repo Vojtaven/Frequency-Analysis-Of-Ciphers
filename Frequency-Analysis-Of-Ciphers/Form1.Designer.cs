@@ -1,7 +1,7 @@
 ﻿
 namespace Frequency_Analysis_Of_Ciphers
 {
-    partial class Form1
+    partial class mainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@ namespace Frequency_Analysis_Of_Ciphers
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Písmena");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Biagramy");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Triagramy");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Písmena");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Biagramy");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Triagramy");
             this.tbIN = new System.Windows.Forms.TextBox();
             this.tvVyskytVTextu = new System.Windows.Forms.TreeView();
             this.tvObecnyVyskyt = new System.Windows.Forms.TreeView();
@@ -48,10 +48,12 @@ namespace Frequency_Analysis_Of_Ciphers
             this.lbLanguageFrequency = new System.Windows.Forms.Label();
             this.lbOutputText = new System.Windows.Forms.Label();
             this.lbInputText = new System.Windows.Forms.Label();
+            this.btClearSelectedLetterCouple = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbIN
             // 
+            this.tbIN.BackColor = System.Drawing.SystemColors.Window;
             this.tbIN.Location = new System.Drawing.Point(12, 22);
             this.tbIN.Multiline = true;
             this.tbIN.Name = "tbIN";
@@ -61,6 +63,7 @@ namespace Frequency_Analysis_Of_Ciphers
             // 
             // tvVyskytVTextu
             // 
+            this.tvVyskytVTextu.BackColor = System.Drawing.SystemColors.Window;
             this.tvVyskytVTextu.Location = new System.Drawing.Point(851, 27);
             this.tvVyskytVTextu.Name = "tvVyskytVTextu";
             this.tvVyskytVTextu.Size = new System.Drawing.Size(114, 592);
@@ -69,24 +72,26 @@ namespace Frequency_Analysis_Of_Ciphers
             // 
             // tvObecnyVyskyt
             // 
+            this.tvObecnyVyskyt.BackColor = System.Drawing.SystemColors.Window;
             this.tvObecnyVyskyt.Location = new System.Drawing.Point(971, 27);
             this.tvObecnyVyskyt.Name = "tvObecnyVyskyt";
-            treeNode7.Name = "letters";
-            treeNode7.Text = "Písmena";
-            treeNode8.Name = "Biagrams";
-            treeNode8.Text = "Biagramy";
-            treeNode9.Name = "Triagrams";
-            treeNode9.Text = "Triagramy";
+            treeNode1.Name = "letters";
+            treeNode1.Text = "Písmena";
+            treeNode2.Name = "Biagrams";
+            treeNode2.Text = "Biagramy";
+            treeNode3.Name = "Triagrams";
+            treeNode3.Text = "Triagramy";
             this.tvObecnyVyskyt.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            treeNode1,
+            treeNode2,
+            treeNode3});
             this.tvObecnyVyskyt.Size = new System.Drawing.Size(114, 592);
             this.tvObecnyVyskyt.TabIndex = 2;
             this.tvObecnyVyskyt.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvObecnyVyskyt_AfterSelect);
             // 
             // tbOut
             // 
+            this.tbOut.BackColor = System.Drawing.SystemColors.Window;
             this.tbOut.Location = new System.Drawing.Point(12, 311);
             this.tbOut.Multiline = true;
             this.tbOut.Name = "tbOut";
@@ -95,6 +100,7 @@ namespace Frequency_Analysis_Of_Ciphers
             // 
             // cbSelectLanguage
             // 
+            this.cbSelectLanguage.BackColor = System.Drawing.SystemColors.Control;
             this.cbSelectLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSelectLanguage.FormattingEnabled = true;
             this.cbSelectLanguage.Items.AddRange(new object[] {
@@ -120,6 +126,7 @@ namespace Frequency_Analysis_Of_Ciphers
             // 
             // cbSorting
             // 
+            this.cbSorting.BackColor = System.Drawing.SystemColors.Control;
             this.cbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSorting.FormattingEnabled = true;
             this.cbSorting.Items.AddRange(new object[] {
@@ -146,7 +153,7 @@ namespace Frequency_Analysis_Of_Ciphers
             this.btSaveSelection.Name = "btSaveSelection";
             this.btSaveSelection.Size = new System.Drawing.Size(111, 44);
             this.btSaveSelection.TabIndex = 8;
-            this.btSaveSelection.Text = "Save selection";
+            this.btSaveSelection.Text = "Save Selection";
             this.btSaveSelection.UseVisualStyleBackColor = true;
             this.btSaveSelection.Click += new System.EventHandler(this.btSaveSelection_Click);
             // 
@@ -162,6 +169,7 @@ namespace Frequency_Analysis_Of_Ciphers
             // 
             // TvLetterChanged
             // 
+            this.TvLetterChanged.BackColor = System.Drawing.SystemColors.Window;
             this.TvLetterChanged.Location = new System.Drawing.Point(731, 27);
             this.TvLetterChanged.Name = "TvLetterChanged";
             this.TvLetterChanged.Size = new System.Drawing.Size(114, 592);
@@ -173,18 +181,18 @@ namespace Frequency_Analysis_Of_Ciphers
             this.lbChangedLetters.AutoSize = true;
             this.lbChangedLetters.Location = new System.Drawing.Point(731, 9);
             this.lbChangedLetters.Name = "lbChangedLetters";
-            this.lbChangedLetters.Size = new System.Drawing.Size(81, 13);
+            this.lbChangedLetters.Size = new System.Drawing.Size(85, 13);
             this.lbChangedLetters.TabIndex = 11;
-            this.lbChangedLetters.Text = "Changed letters";
+            this.lbChangedLetters.Text = "Changed Letters";
             // 
             // lbTextFrequency
             // 
             this.lbTextFrequency.AutoSize = true;
             this.lbTextFrequency.Location = new System.Drawing.Point(851, 8);
             this.lbTextFrequency.Name = "lbTextFrequency";
-            this.lbTextFrequency.Size = new System.Drawing.Size(78, 13);
+            this.lbTextFrequency.Size = new System.Drawing.Size(81, 13);
             this.lbTextFrequency.TabIndex = 12;
-            this.lbTextFrequency.Text = "Text frequency";
+            this.lbTextFrequency.Text = "Text Frequency";
             // 
             // lbLanguageFrequency
             // 
@@ -193,31 +201,43 @@ namespace Frequency_Analysis_Of_Ciphers
             this.lbLanguageFrequency.Name = "lbLanguageFrequency";
             this.lbLanguageFrequency.Size = new System.Drawing.Size(108, 13);
             this.lbLanguageFrequency.TabIndex = 13;
-            this.lbLanguageFrequency.Text = "Language drequency";
+            this.lbLanguageFrequency.Text = "Language Frequency";
             // 
             // lbOutputText
             // 
             this.lbOutputText.AutoSize = true;
             this.lbOutputText.Location = new System.Drawing.Point(12, 295);
             this.lbOutputText.Name = "lbOutputText";
-            this.lbOutputText.Size = new System.Drawing.Size(59, 13);
+            this.lbOutputText.Size = new System.Drawing.Size(63, 13);
             this.lbOutputText.TabIndex = 14;
-            this.lbOutputText.Text = "Output text";
+            this.lbOutputText.Text = "Output Text";
             // 
             // lbInputText
             // 
             this.lbInputText.AutoSize = true;
             this.lbInputText.Location = new System.Drawing.Point(12, 6);
             this.lbInputText.Name = "lbInputText";
-            this.lbInputText.Size = new System.Drawing.Size(51, 13);
+            this.lbInputText.Size = new System.Drawing.Size(55, 13);
             this.lbInputText.TabIndex = 15;
-            this.lbInputText.Text = "Input text";
+            this.lbInputText.Text = "Input Text";
             // 
-            // Form1
+            // btClearSelectedLetterCouple
+            // 
+            this.btClearSelectedLetterCouple.Location = new System.Drawing.Point(520, 200);
+            this.btClearSelectedLetterCouple.Name = "btClearSelectedLetterCouple";
+            this.btClearSelectedLetterCouple.Size = new System.Drawing.Size(111, 34);
+            this.btClearSelectedLetterCouple.TabIndex = 16;
+            this.btClearSelectedLetterCouple.Text = "Remove Selected Letter Couple";
+            this.btClearSelectedLetterCouple.UseVisualStyleBackColor = true;
+            this.btClearSelectedLetterCouple.Click += new System.EventHandler(this.btClearSelectedLetterCouple_Click);
+            // 
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1097, 631);
+            this.Controls.Add(this.btClearSelectedLetterCouple);
             this.Controls.Add(this.lbInputText);
             this.Controls.Add(this.lbOutputText);
             this.Controls.Add(this.lbLanguageFrequency);
@@ -234,8 +254,9 @@ namespace Frequency_Analysis_Of_Ciphers
             this.Controls.Add(this.tvObecnyVyskyt);
             this.Controls.Add(this.tvVyskytVTextu);
             this.Controls.Add(this.tbIN);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "mainForm";
+            this.Text = "Frequency analysis of ciphers";
+            this.Load += new System.EventHandler(this.mainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,6 +280,7 @@ namespace Frequency_Analysis_Of_Ciphers
         private System.Windows.Forms.Label lbLanguageFrequency;
         private System.Windows.Forms.Label lbOutputText;
         private System.Windows.Forms.Label lbInputText;
+        private System.Windows.Forms.Button btClearSelectedLetterCouple;
     }
 }
 
