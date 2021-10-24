@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.IO;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
 
 namespace Frequency_Analysis_Of_Ciphers
 {
@@ -18,7 +12,7 @@ namespace Frequency_Analysis_Of_Ciphers
             this.tvInUse = tvInUse;
         }
         public TreeViewFiller()
-        { 
+        {
         }
 
         public void TreeViewFill(List<letterfre> list)
@@ -48,7 +42,7 @@ namespace Frequency_Analysis_Of_Ciphers
             list = list.OrderBy(o => o.getLetter()).ToList();
             TreeViewFill(list);
         }
-        public void sortByPercentage(List<letterfre> list) 
+        public void sortByPercentage(List<letterfre> list)
         {
             list = list.OrderByDescending(o => o.getFrequency()).ToList();
             TreeViewFill(list);

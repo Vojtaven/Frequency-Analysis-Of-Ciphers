@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Frequency_Analysis_Of_Ciphers
+﻿namespace Frequency_Analysis_Of_Ciphers
 {
     class letterfre
     {
@@ -24,7 +18,7 @@ namespace Frequency_Analysis_Of_Ciphers
             this.frequency = frequency;
         }
 
-        public letterfre( int count, char letter) 
+        public letterfre(int count, char letter)
         {
             this.letter = letter;
             this.count = count;
@@ -33,7 +27,7 @@ namespace Frequency_Analysis_Of_Ciphers
         {
             return $"{letter} {frequency}";
         }
-        public float getFrequency() 
+        public float getFrequency()
         {
             return frequency;
         }
@@ -45,7 +39,7 @@ namespace Frequency_Analysis_Of_Ciphers
         {
             return count;
         }
-        public void addCount() 
+        public void addCount()
         {
             count++;
         }

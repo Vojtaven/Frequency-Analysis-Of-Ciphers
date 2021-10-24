@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Globalization;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Frequency_Analysis_Of_Ciphers
 {
@@ -19,9 +17,9 @@ namespace Frequency_Analysis_Of_Ciphers
         TreeViewFiller treeViewFiller;
         public FrequencyCalculator(TreeView tvfrequencyInText, TextBox tbIN, TreeView tvVyskytVTextu)
         {
-            treeViewFiller = new TreeViewFiller(tvfrequencyInText); 
+            treeViewFiller = new TreeViewFiller(tvfrequencyInText);
             this.tbIN = tbIN;
-             this.tvVyskytVTextu= tvVyskytVTextu;
+            this.tvVyskytVTextu = tvVyskytVTextu;
         }
 
         public void StartCalculations()
@@ -31,7 +29,7 @@ namespace Frequency_Analysis_Of_Ciphers
             calculateFrequency();
             FrequencyTreeViewFiller(tvVyskytVTextu);
         }
-        public void FindLetterCount(string text) 
+        public void FindLetterCount(string text)
         {
             text = this.RemoveDiacritics(text).ToUpper();
             foreach (char letter in text)
@@ -67,18 +65,18 @@ namespace Frequency_Analysis_Of_Ciphers
             letterCount.Clear();
         }
 
-        public void calculateFrequency() 
+        public void calculateFrequency()
         {
             letterFrequency.Clear();
             float temp;
             for (int i = 0; i < letterCount.Count; i++)
             {
-                temp = (float)Math.Round((double)(letterCount[i].getCount() / (decimal)allLetterCount) * 100, 2 , MidpointRounding.AwayFromZero);
+                temp = (float)Math.Round((double)(letterCount[i].getCount() / (decimal)allLetterCount) * 100, 2, MidpointRounding.AwayFromZero);
                 letterFrequency.Add(new letterfre(letterCount[i].getLetter(), temp));
             }
-        
+
         }
-        public void FrequencyTreeViewFiller(TreeView tv) 
+        public void FrequencyTreeViewFiller(TreeView tv)
         {
             if (Alphabetically)
                 sortAlphabetically();

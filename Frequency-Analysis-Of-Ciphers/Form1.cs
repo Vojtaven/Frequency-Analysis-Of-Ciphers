@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Timers;
-using System.Threading;
 
 namespace Frequency_Analysis_Of_Ciphers
 {
@@ -25,10 +17,10 @@ namespace Frequency_Analysis_Of_Ciphers
         System.Threading.Timer timer = null;
         public mainForm()
         {
-            InitializeComponent(); 
-            frequencyCalculator = new FrequencyCalculator(tvVyskytVTextu,tbIN,tvVyskytVTextu);
+            InitializeComponent();
+            frequencyCalculator = new FrequencyCalculator(tvVyskytVTextu, tbIN, tvVyskytVTextu);
             languageFrequency = new LanguageFrequency(tvObecnyVyskyt);
-            letterChanger = new LetterChanger(tvVyskytVTextu,tvObecnyVyskyt,TvLetterChanged,tbIN,tbOut);
+            letterChanger = new LetterChanger(tvVyskytVTextu, tvObecnyVyskyt, TvLetterChanged, tbIN, tbOut);
             tbIN.ScrollBars = ScrollBars.Vertical;
             tbOut.ScrollBars = ScrollBars.Vertical;
             cbSelectLanguage.SelectedIndex = 0;
@@ -63,16 +55,14 @@ namespace Frequency_Analysis_Of_Ciphers
         }
 
         private void CheckSyntaxAndReport()
-        { 
+        {
             //Příkaz
-            string tempText = "";
             this.Invoke(new Action(() =>
             {
-            letterChanger.ChangeTextBox();
-            frequencyCalculator.StartCalculations();
+                letterChanger.ChangeTextBox();
+                frequencyCalculator.StartCalculations();
             }
-            ));
-
+             ));
         }
 
         //Mění jazyk
@@ -104,7 +94,7 @@ namespace Frequency_Analysis_Of_Ciphers
         //Zvýrazní označený kořen
         private void tvObecnyVyskyt_AfterSelect(object sender, TreeViewEventArgs e)
         {
-           _lastSelectedNode1 = NodeHiglight(e.Node,_lastSelectedNode1);
+            _lastSelectedNode1 = NodeHiglight(e.Node, _lastSelectedNode1);
             if (tvVyskytVTextu.SelectedNode != null)
             {
                 letterChanger.LetterChange();
@@ -112,7 +102,7 @@ namespace Frequency_Analysis_Of_Ciphers
         }
 
         //Funkce na zvýraznění
-        private TreeNode NodeHiglight(TreeNode e,TreeNode _lastSelectedNode)
+        private TreeNode NodeHiglight(TreeNode e, TreeNode _lastSelectedNode)
         {
             // Select new node
             e.BackColor = SystemColors.Highlight;
@@ -129,14 +119,14 @@ namespace Frequency_Analysis_Of_Ciphers
         //Zvýrazní označený kořen
         private void tvVyskytVTextu_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            _lastSelectedNode2 = NodeHiglight(e.Node,_lastSelectedNode2);
+            _lastSelectedNode2 = NodeHiglight(e.Node, _lastSelectedNode2);
             if (tvObecnyVyskyt.SelectedNode != null)
             {
                 letterChanger.LetterChange();
             }
         }
 
-        
+
         private void btSaveSelection_Click(object sender, EventArgs e)
         {
             letterChanger.saveSelection();
@@ -153,11 +143,6 @@ namespace Frequency_Analysis_Of_Ciphers
             tvVyskytVTextu.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[0], tvVyskytVTextu);
             tvObecnyVyskyt.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[5], tvObecnyVyskyt);
             letterChanger.LetterChange();
-        }
-
-        private void mainForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btClearSelectedLetterCouple_Click(object sender, EventArgs e)
