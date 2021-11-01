@@ -147,8 +147,11 @@ namespace Frequency_Analysis_Of_Ciphers
 
         private void btClearSelectedLetterCouple_Click(object sender, EventArgs e)
         {
-            letterChanger.RemoveLetterCouple(TvLetterChanged.SelectedNode.Text);
-            TvLetterChanged.SelectedNode.Remove();
+            if (TvLetterChanged.SelectedNode != null)
+            {
+                letterChanger.RemoveLetterCouple(TvLetterChanged.SelectedNode.Text);
+                TvLetterChanged.SelectedNode.Remove();
+            }
         }
     }
     public static class Extensions

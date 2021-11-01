@@ -102,8 +102,10 @@ namespace Frequency_Analysis_Of_Ciphers
                     selectedChangingLetter = char.MinValue;
                     changeSavedOrinalLetterString();
                     ChangeTvContent();
+                    ChangeTextBox();
                 }
             }
+
         }
         private void changeSavedOrinalLetterString()
         {
