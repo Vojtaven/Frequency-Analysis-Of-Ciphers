@@ -37,14 +37,14 @@ namespace Frequency_Analysis_Of_Ciphers
             tvInUse.Invoke(t => t.ExpandAll());
         }
 
-        public void sortAlphabetically(List<letterfre> list)
+        public void SortAlphabetically(List<letterfre> list)
         {
-            list = list.OrderBy(o => o.getLetter()).ToList();
+            list = list.OrderBy(o => o.GetLetter()).ToList();
             TreeViewFill(list);
         }
-        public void sortByPercentage(List<letterfre> list)
+        public void SortByPercentage(List<letterfre> list)
         {
-            list = list.OrderByDescending(o => o.getFrequency()).ToList();
+            list = list.OrderByDescending(o => o.frequency).ToList();
             TreeViewFill(list);
         }
 

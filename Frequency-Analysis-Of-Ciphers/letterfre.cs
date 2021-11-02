@@ -1,17 +1,13 @@
-﻿namespace Frequency_Analysis_Of_Ciphers
+﻿using System;
+
+namespace Frequency_Analysis_Of_Ciphers
 {
     class letterfre
     {
         public char letter { get; private set; }
         public float frequency { get; private set; }
         public int count { get; private set; }
-        public char originalLetter;
-        public char changingLetter;
-        public letterfre(char originalLetter, char changingLetter)
-        {
-            this.changingLetter = changingLetter;
-            this.originalLetter = originalLetter;
-        }
+
         public letterfre(char letter, float frequency)
         {
             this.letter = letter;
@@ -27,19 +23,16 @@
         {
             return $"{letter} {frequency}";
         }
-        public float getFrequency()
+        public void CalculateFrequency(int allLettersCount)
         {
-            return frequency;
+           frequency = (float)Math.Round((double)(count / (decimal)allLettersCount) * 100, 2, MidpointRounding.AwayFromZero);
         }
-        public char getLetter()
+
+        public char GetLetter()
         {
             return letter;
         }
-        public int getCount()
-        {
-            return count;
-        }
-        public void addCount()
+        public void AddCount()
         {
             count++;
         }

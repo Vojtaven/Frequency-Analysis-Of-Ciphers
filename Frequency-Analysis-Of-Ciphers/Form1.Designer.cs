@@ -32,6 +32,7 @@ namespace Frequency_Analysis_Of_Ciphers
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Písmena");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Biagramy");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Triagramy");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.tbIN = new System.Windows.Forms.TextBox();
             this.tvVyskytVTextu = new System.Windows.Forms.TreeView();
             this.tvObecnyVyskyt = new System.Windows.Forms.TreeView();
@@ -254,6 +255,7 @@ namespace Frequency_Analysis_Of_Ciphers
             this.Controls.Add(this.tvObecnyVyskyt);
             this.Controls.Add(this.tvVyskytVTextu);
             this.Controls.Add(this.tbIN);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainForm";
             this.Text = "Frequency analysis of ciphers";
             this.ResumeLayout(false);

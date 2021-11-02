@@ -7,10 +7,10 @@ namespace Frequency_Analysis_Of_Ciphers
 
     public partial class mainForm : Form
     {
-        TreeViewFiller treeViewFiller = new TreeViewFiller();
-        FrequencyCalculator frequencyCalculator;
-        LanguageFrequency languageFrequency;
-        LetterChanger letterChanger;
+        private readonly TreeViewFiller treeViewFiller = new TreeViewFiller();
+        private FrequencyCalculator frequencyCalculator;
+        private LanguageFrequency languageFrequency;
+        private LetterChanger letterChanger;
         static int VALIDATION_DELAY = 500;
         private TreeNode _lastSelectedNode1 = null;
         private TreeNode _lastSelectedNode2 = null;
@@ -18,7 +18,7 @@ namespace Frequency_Analysis_Of_Ciphers
         public mainForm()
         {
             InitializeComponent();
-            frequencyCalculator = new FrequencyCalculator(tvVyskytVTextu, tbIN, tvVyskytVTextu);
+            frequencyCalculator = new FrequencyCalculator(tvVyskytVTextu, tbIN);
             languageFrequency = new LanguageFrequency(tvObecnyVyskyt);
             letterChanger = new LetterChanger(tvVyskytVTextu, tvObecnyVyskyt, TvLetterChanged, tbIN, tbOut);
             tbIN.ScrollBars = ScrollBars.Vertical;
@@ -81,13 +81,13 @@ namespace Frequency_Analysis_Of_Ciphers
         {
             if (cbSorting.SelectedIndex == 0)
             {
-                languageFrequency.sortAlphabetically();
-                frequencyCalculator.sortAlphabetically();
+                languageFrequency.SortAlphabetically();
+                frequencyCalculator.SortAlphabetically();
             }
             else
             {
-                languageFrequency.sortByPercentage();
-                frequencyCalculator.sortByPercentage();
+                languageFrequency.SortByPercentage();
+                frequencyCalculator.SortByPercentage();
             }
         }
 
@@ -129,7 +129,7 @@ namespace Frequency_Analysis_Of_Ciphers
 
         private void btSaveSelection_Click(object sender, EventArgs e)
         {
-            letterChanger.saveSelection();
+            letterChanger.SaveSelection();
         }
 
         private void btClearSavedSelection_Click(object sender, EventArgs e)

@@ -13,7 +13,6 @@ namespace Frequency_Analysis_Of_Ciphers
 
         TreeView tvOriginalLetter;
         TreeView tvChangingLetter;
-        TreeView TvLetterChanged;
 
         TextBox tbIn;
         TextBox tbOut;
@@ -24,7 +23,6 @@ namespace Frequency_Analysis_Of_Ciphers
 
         public LetterChanger(TreeView tvOriginalLetter, TreeView tvChangingLetter, TreeView TvLetterChanged, TextBox tbIn, TextBox tbOut)
         {
-            this.TvLetterChanged = TvLetterChanged;
             this.tvOriginalLetter = tvOriginalLetter;
             this.tvChangingLetter = tvChangingLetter;
             this.tbIn = tbIn;
@@ -55,7 +53,7 @@ namespace Frequency_Analysis_Of_Ciphers
             }
             tbOut.Text = tempText;
         }
-        public void saveSelection()
+        public void SaveSelection()
         {
             if (selectedChangingLetter != char.MinValue)   //Ověří že se nejedná o špatný znak
             {
@@ -100,20 +98,20 @@ namespace Frequency_Analysis_Of_Ciphers
 
                     selectedOriginalLetter = char.MinValue;
                     selectedChangingLetter = char.MinValue;
-                    changeSavedOrinalLetterString();
+                    ChangeSavedOrinalLetterString();
                     ChangeTvContent();
-                    ChangeTextBox();
                 }
             }
 
         }
-        private void changeSavedOrinalLetterString()
+        private void ChangeSavedOrinalLetterString()
         {
             savedOriginalLetters = "";
             foreach (changedLetter item in listOfChangedLetters)
             {
                 savedOriginalLetters += item.originalLetter;
             }
+            ChangeTextBox();
         }
         public void ClearSavedSelections()
         {
@@ -130,7 +128,7 @@ namespace Frequency_Analysis_Of_Ciphers
                 if (coupleToRemove == listOfChangedLetters[i].ToString())
                 {
                     listOfChangedLetters.RemoveAt(i);
-                    changeSavedOrinalLetterString();
+                    ChangeSavedOrinalLetterString();
                     break;
                 }
             }

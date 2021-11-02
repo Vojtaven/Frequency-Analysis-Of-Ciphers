@@ -9,25 +9,22 @@ namespace Frequency_Analysis_Of_Ciphers
     class FrequencyCalculator
     {
         TextBox tbIN;
-        TreeView tvVyskytVTextu;
-        private List<letterfre> letterCount = new List<letterfre>();
-        private List<letterfre> letterFrequency = new List<letterfre>();
+        private readonly List<letterfre> letterFrequency = new List<letterfre>();
         private int allLetterCount = 0;
         private bool Alphabetically = true;
         TreeViewFiller treeViewFiller;
-        public FrequencyCalculator(TreeView tvfrequencyInText, TextBox tbIN, TreeView tvVyskytVTextu)
+        public FrequencyCalculator(TreeView tvfrequencyInText, TextBox tbIN)
         {
             treeViewFiller = new TreeViewFiller(tvfrequencyInText);
             this.tbIN = tbIN;
-            this.tvVyskytVTextu = tvVyskytVTextu;
         }
 
         public void StartCalculations()
         {
-            clearList();
+            ClearList();
             FindLetterCount(tbIN.Text);
-            calculateFrequency();
-            FrequencyTreeViewFiller(tvVyskytVTextu);
+            CalculateFrequency();
+            FrequencyTreeViewFiller();
         }
         public void FindLetterCount(string text)
         {
@@ -36,52 +33,48 @@ namespace Frequency_Analysis_Of_Ciphers
             {
                 if (char.IsLetter(letter))
                 {
-                    int index = letterCount.FindIndex(o => o.letter == letter);
+                    int index = letterFrequency.FindIndex(o => o.letter == letter);
                     if (index >= 0)
                     {
-                        letterCount[index].addCount();
+                        letterFrequency[index].AddCount();
                     }
                     else
                     {
-                        letterCount.Add(new letterfre(1, letter));
+                        letterFrequency.Add(new letterfre(1, letter));
                     }
                     allLetterCount++;
                 }
             }
         }
-        public void sortAlphabetically()
+        public void SortAlphabetically()
         {
-            treeViewFiller.sortAlphabetically(letterFrequency);
+            treeViewFiller.SortAlphabetically(letterFrequency);
             Alphabetically = true;
         }
-        public void sortByPercentage()
+        public void SortByPercentage()
         {
-            treeViewFiller.sortByPercentage(letterFrequency);
+            treeViewFiller.SortByPercentage(letterFrequency);
             Alphabetically = false;
         }
-        public void clearList()
+        public void ClearList()
         {
             allLetterCount = 0;
-            letterCount.Clear();
-        }
-
-        public void calculateFrequency()
-        {
             letterFrequency.Clear();
-            float temp;
-            for (int i = 0; i < letterCount.Count; i++)
-            {
-                temp = (float)Math.Round((double)(letterCount[i].getCount() / (decimal)allLetterCount) * 100, 2, MidpointRounding.AwayFromZero);
-                letterFrequency.Add(new letterfre(letterCount[i].getLetter(), temp));
-            }
-
         }
-        public void FrequencyTreeViewFiller(TreeView tv)
+
+        public void CalculateFrequency()
+        {
+            for (int i = 0; i < letterFrequency.Count; i++)
+            {
+                letterFrequency[i].CalculateFrequency(allLetterCount);
+            }
+        }
+        public void FrequencyTreeViewFiller()
         {
             if (Alphabetically)
-                sortAlphabetically();
+                SortAlphabetically();
             else
-                sortByPercentage();
+                SortByPercentage();
         }
         private string RemoveDiacritics(string text)
         {

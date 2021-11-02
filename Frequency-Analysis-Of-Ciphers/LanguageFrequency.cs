@@ -45,20 +45,20 @@ namespace Frequency_Analysis_Of_Ciphers
                     break;
             }
             if (!alphabetically)
-                treeViewFiller.sortByPercentage(nowUsing);
+                treeViewFiller.SortByPercentage(nowUsing);
             else
                 treeViewFiller.TreeViewFill(nowUsing);
         }
 
-        public void sortAlphabetically()
+        public void SortAlphabetically()
         {
             alphabetically = true;
-            treeViewFiller.sortAlphabetically(nowUsing);
+            treeViewFiller.SortAlphabetically(nowUsing);
         }
-        public void sortByPercentage()
+        public void SortByPercentage()
         {
             alphabetically = false;
-            treeViewFiller.sortByPercentage(nowUsing);
+            treeViewFiller.SortByPercentage(nowUsing);
         }
 
         private void CreateLanguages()
