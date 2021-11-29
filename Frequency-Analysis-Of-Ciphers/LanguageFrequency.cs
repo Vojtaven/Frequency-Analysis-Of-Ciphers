@@ -63,6 +63,7 @@ namespace Frequency_Analysis_Of_Ciphers
 
         private void CreateLanguages()
         {
+
             string[] rawtextData = data.Split(new string[] { "\r", "\n", " " }, StringSplitOptions.RemoveEmptyEntries);
 
             for (int i = 0; i < alphabet.Length; i++)

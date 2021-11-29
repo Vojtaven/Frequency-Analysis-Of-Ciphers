@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Frequency_Analysis_Of_Ciphers
 {
@@ -153,6 +154,41 @@ namespace Frequency_Analysis_Of_Ciphers
                 TvLetterChanged.SelectedNode.Remove();
             }
         }
+
+        private void nápovědaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm help = new HelpForm();
+            help.Show();
+        }
+
+        private void vstupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open Text File";
+            theDialog.Filter = "TXT files|*.txt";
+            theDialog.InitialDirectory = @"C:\";
+            if (theDialog.ShowDialog() == DialogResult.OK)
+            {
+                tbIN.Text = new StreamReader(theDialog.FileName).ReadToEnd();
+            }
+        }
+
+        private void uložitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Open Text File";
+            saveFileDialog.Filter = "TXT files|*.txt";
+            saveFileDialog.DefaultExt = "txt";
+            saveFileDialog.FileName = "output";
+            saveFileDialog.InitialDirectory = @"C:\";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Stream stream = saveFileDialog.OpenFile();
+                StreamWriter file = new StreamWriter(stream);
+                file.Write(tbOut.Text);
+                file.Close();
+            }
+        }
     }
     public static class Extensions
     {
@@ -165,5 +201,7 @@ namespace Frequency_Analysis_Of_Ciphers
                 del(control);
         }
     }
+
+
 
 }

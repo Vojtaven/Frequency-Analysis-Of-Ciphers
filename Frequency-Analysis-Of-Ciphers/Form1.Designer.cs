@@ -50,12 +50,21 @@ namespace Frequency_Analysis_Of_Ciphers
             this.lbOutputText = new System.Windows.Forms.Label();
             this.lbInputText = new System.Windows.Forms.Label();
             this.btClearSelectedLetterCouple = new System.Windows.Forms.Button();
+            this.MsMainMenu = new System.Windows.Forms.MenuStrip();
+            this.souborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vstupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uložitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.konfuguraceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.načístKonfiguraciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uložitKonfiguraciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.napovedaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MsMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbIN
             // 
             this.tbIN.BackColor = System.Drawing.SystemColors.Window;
-            this.tbIN.Location = new System.Drawing.Point(12, 22);
+            this.tbIN.Location = new System.Drawing.Point(15, 43);
             this.tbIN.Multiline = true;
             this.tbIN.Name = "tbIN";
             this.tbIN.Size = new System.Drawing.Size(441, 266);
@@ -65,16 +74,16 @@ namespace Frequency_Analysis_Of_Ciphers
             // tvVyskytVTextu
             // 
             this.tvVyskytVTextu.BackColor = System.Drawing.SystemColors.Window;
-            this.tvVyskytVTextu.Location = new System.Drawing.Point(851, 27);
+            this.tvVyskytVTextu.Location = new System.Drawing.Point(851, 43);
             this.tvVyskytVTextu.Name = "tvVyskytVTextu";
-            this.tvVyskytVTextu.Size = new System.Drawing.Size(114, 592);
+            this.tvVyskytVTextu.Size = new System.Drawing.Size(114, 576);
             this.tvVyskytVTextu.TabIndex = 1;
             this.tvVyskytVTextu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvVyskytVTextu_AfterSelect);
             // 
             // tvObecnyVyskyt
             // 
             this.tvObecnyVyskyt.BackColor = System.Drawing.SystemColors.Window;
-            this.tvObecnyVyskyt.Location = new System.Drawing.Point(971, 27);
+            this.tvObecnyVyskyt.Location = new System.Drawing.Point(971, 43);
             this.tvObecnyVyskyt.Name = "tvObecnyVyskyt";
             treeNode1.Name = "letters";
             treeNode1.Text = "Písmena";
@@ -86,17 +95,17 @@ namespace Frequency_Analysis_Of_Ciphers
             treeNode1,
             treeNode2,
             treeNode3});
-            this.tvObecnyVyskyt.Size = new System.Drawing.Size(114, 592);
+            this.tvObecnyVyskyt.Size = new System.Drawing.Size(114, 576);
             this.tvObecnyVyskyt.TabIndex = 2;
             this.tvObecnyVyskyt.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvObecnyVyskyt_AfterSelect);
             // 
             // tbOut
             // 
             this.tbOut.BackColor = System.Drawing.SystemColors.Window;
-            this.tbOut.Location = new System.Drawing.Point(12, 311);
+            this.tbOut.Location = new System.Drawing.Point(15, 328);
             this.tbOut.Multiline = true;
             this.tbOut.Name = "tbOut";
-            this.tbOut.Size = new System.Drawing.Size(441, 308);
+            this.tbOut.Size = new System.Drawing.Size(441, 291);
             this.tbOut.TabIndex = 3;
             // 
             // cbSelectLanguage
@@ -110,7 +119,7 @@ namespace Frequency_Analysis_Of_Ciphers
             "German",
             "French",
             "Slovak"});
-            this.cbSelectLanguage.Location = new System.Drawing.Point(484, 27);
+            this.cbSelectLanguage.Location = new System.Drawing.Point(484, 43);
             this.cbSelectLanguage.Name = "cbSelectLanguage";
             this.cbSelectLanguage.Size = new System.Drawing.Size(182, 21);
             this.cbSelectLanguage.TabIndex = 4;
@@ -119,11 +128,11 @@ namespace Frequency_Analysis_Of_Ciphers
             // lbLanguageSelection
             // 
             this.lbLanguageSelection.AutoSize = true;
-            this.lbLanguageSelection.Location = new System.Drawing.Point(481, 9);
+            this.lbLanguageSelection.Location = new System.Drawing.Point(481, 27);
             this.lbLanguageSelection.Name = "lbLanguageSelection";
-            this.lbLanguageSelection.Size = new System.Drawing.Size(100, 13);
+            this.lbLanguageSelection.Size = new System.Drawing.Size(67, 13);
             this.lbLanguageSelection.TabIndex = 5;
-            this.lbLanguageSelection.Text = "Language selection";
+            this.lbLanguageSelection.Text = "Výběr jazyka";
             // 
             // cbSorting
             // 
@@ -133,7 +142,7 @@ namespace Frequency_Analysis_Of_Ciphers
             this.cbSorting.Items.AddRange(new object[] {
             "Alphabetically",
             "By percentage"});
-            this.cbSorting.Location = new System.Drawing.Point(484, 75);
+            this.cbSorting.Location = new System.Drawing.Point(484, 83);
             this.cbSorting.Name = "cbSorting";
             this.cbSorting.Size = new System.Drawing.Size(182, 21);
             this.cbSorting.TabIndex = 6;
@@ -142,95 +151,161 @@ namespace Frequency_Analysis_Of_Ciphers
             // lbSorting
             // 
             this.lbSorting.AutoSize = true;
-            this.lbSorting.Location = new System.Drawing.Point(484, 56);
+            this.lbSorting.Location = new System.Drawing.Point(481, 67);
             this.lbSorting.Name = "lbSorting";
-            this.lbSorting.Size = new System.Drawing.Size(40, 13);
+            this.lbSorting.Size = new System.Drawing.Size(64, 13);
             this.lbSorting.TabIndex = 7;
-            this.lbSorting.Text = "Sorting";
+            this.lbSorting.Text = "Druh řazení";
             // 
             // btSaveSelection
             // 
-            this.btSaveSelection.Location = new System.Drawing.Point(520, 103);
+            this.btSaveSelection.Location = new System.Drawing.Point(520, 110);
             this.btSaveSelection.Name = "btSaveSelection";
             this.btSaveSelection.Size = new System.Drawing.Size(111, 44);
             this.btSaveSelection.TabIndex = 8;
-            this.btSaveSelection.Text = "Save Selection";
+            this.btSaveSelection.Text = "Uložit vybranou dvojici";
             this.btSaveSelection.UseVisualStyleBackColor = true;
             this.btSaveSelection.Click += new System.EventHandler(this.btSaveSelection_Click);
             // 
             // btClearSavedSelection
             // 
-            this.btClearSavedSelection.Location = new System.Drawing.Point(520, 154);
+            this.btClearSavedSelection.Location = new System.Drawing.Point(520, 160);
             this.btClearSavedSelection.Name = "btClearSavedSelection";
             this.btClearSavedSelection.Size = new System.Drawing.Size(111, 39);
             this.btClearSavedSelection.TabIndex = 9;
-            this.btClearSavedSelection.Text = "Clear Saved Selections";
+            this.btClearSavedSelection.Text = "Vymazat uložené dvojice";
             this.btClearSavedSelection.UseVisualStyleBackColor = true;
             this.btClearSavedSelection.Click += new System.EventHandler(this.btClearSavedSelection_Click);
             // 
             // TvLetterChanged
             // 
             this.TvLetterChanged.BackColor = System.Drawing.SystemColors.Window;
-            this.TvLetterChanged.Location = new System.Drawing.Point(731, 27);
+            this.TvLetterChanged.Location = new System.Drawing.Point(718, 43);
             this.TvLetterChanged.Name = "TvLetterChanged";
-            this.TvLetterChanged.Size = new System.Drawing.Size(114, 592);
+            this.TvLetterChanged.Size = new System.Drawing.Size(114, 576);
             this.TvLetterChanged.TabIndex = 10;
             this.TvLetterChanged.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TvLetterChanged_AfterSelect);
             // 
             // lbChangedLetters
             // 
             this.lbChangedLetters.AutoSize = true;
-            this.lbChangedLetters.Location = new System.Drawing.Point(731, 9);
+            this.lbChangedLetters.Location = new System.Drawing.Point(715, 24);
             this.lbChangedLetters.Name = "lbChangedLetters";
-            this.lbChangedLetters.Size = new System.Drawing.Size(85, 13);
+            this.lbChangedLetters.Size = new System.Drawing.Size(101, 13);
             this.lbChangedLetters.TabIndex = 11;
-            this.lbChangedLetters.Text = "Changed Letters";
+            this.lbChangedLetters.Text = "Vyměněná písmena";
             // 
             // lbTextFrequency
             // 
             this.lbTextFrequency.AutoSize = true;
-            this.lbTextFrequency.Location = new System.Drawing.Point(851, 8);
+            this.lbTextFrequency.Location = new System.Drawing.Point(848, 24);
             this.lbTextFrequency.Name = "lbTextFrequency";
-            this.lbTextFrequency.Size = new System.Drawing.Size(81, 13);
+            this.lbTextFrequency.Size = new System.Drawing.Size(73, 13);
             this.lbTextFrequency.TabIndex = 12;
-            this.lbTextFrequency.Text = "Text Frequency";
+            this.lbTextFrequency.Text = "Výskyt v textu";
             // 
             // lbLanguageFrequency
             // 
             this.lbLanguageFrequency.AutoSize = true;
-            this.lbLanguageFrequency.Location = new System.Drawing.Point(971, 7);
+            this.lbLanguageFrequency.Location = new System.Drawing.Point(968, 24);
             this.lbLanguageFrequency.Name = "lbLanguageFrequency";
-            this.lbLanguageFrequency.Size = new System.Drawing.Size(108, 13);
+            this.lbLanguageFrequency.Size = new System.Drawing.Size(80, 13);
             this.lbLanguageFrequency.TabIndex = 13;
-            this.lbLanguageFrequency.Text = "Language Frequency";
+            this.lbLanguageFrequency.Text = "Výskyt v jazyce";
             // 
             // lbOutputText
             // 
             this.lbOutputText.AutoSize = true;
-            this.lbOutputText.Location = new System.Drawing.Point(12, 295);
+            this.lbOutputText.Location = new System.Drawing.Point(12, 312);
             this.lbOutputText.Name = "lbOutputText";
-            this.lbOutputText.Size = new System.Drawing.Size(63, 13);
+            this.lbOutputText.Size = new System.Drawing.Size(39, 13);
             this.lbOutputText.TabIndex = 14;
-            this.lbOutputText.Text = "Output Text";
+            this.lbOutputText.Text = "Výstup";
             // 
             // lbInputText
             // 
             this.lbInputText.AutoSize = true;
-            this.lbInputText.Location = new System.Drawing.Point(12, 6);
+            this.lbInputText.Location = new System.Drawing.Point(12, 27);
             this.lbInputText.Name = "lbInputText";
-            this.lbInputText.Size = new System.Drawing.Size(55, 13);
+            this.lbInputText.Size = new System.Drawing.Size(64, 13);
             this.lbInputText.TabIndex = 15;
-            this.lbInputText.Text = "Input Text";
+            this.lbInputText.Text = "Vstupní text";
             // 
             // btClearSelectedLetterCouple
             // 
-            this.btClearSelectedLetterCouple.Location = new System.Drawing.Point(520, 200);
+            this.btClearSelectedLetterCouple.Location = new System.Drawing.Point(520, 205);
             this.btClearSelectedLetterCouple.Name = "btClearSelectedLetterCouple";
             this.btClearSelectedLetterCouple.Size = new System.Drawing.Size(111, 34);
             this.btClearSelectedLetterCouple.TabIndex = 16;
-            this.btClearSelectedLetterCouple.Text = "Remove Selected Letter Couple";
+            this.btClearSelectedLetterCouple.Text = "Odebrat vybraný pár písmen";
             this.btClearSelectedLetterCouple.UseVisualStyleBackColor = true;
             this.btClearSelectedLetterCouple.Click += new System.EventHandler(this.btClearSelectedLetterCouple_Click);
+            // 
+            // MsMainMenu
+            // 
+            this.MsMainMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.MsMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.souborToolStripMenuItem,
+            this.konfuguraceToolStripMenuItem,
+            this.napovedaToolStripMenuItem});
+            this.MsMainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MsMainMenu.Name = "MsMainMenu";
+            this.MsMainMenu.Size = new System.Drawing.Size(1097, 24);
+            this.MsMainMenu.TabIndex = 17;
+            this.MsMainMenu.Text = "menuStrip1";
+            // 
+            // souborToolStripMenuItem
+            // 
+            this.souborToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.souborToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vstupToolStripMenuItem,
+            this.uložitToolStripMenuItem});
+            this.souborToolStripMenuItem.Name = "souborToolStripMenuItem";
+            this.souborToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.souborToolStripMenuItem.Text = "Soubor";
+            // 
+            // vstupToolStripMenuItem
+            // 
+            this.vstupToolStripMenuItem.Name = "vstupToolStripMenuItem";
+            this.vstupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vstupToolStripMenuItem.Text = "Nahrát vstup";
+            this.vstupToolStripMenuItem.Click += new System.EventHandler(this.vstupToolStripMenuItem_Click);
+            // 
+            // uložitToolStripMenuItem
+            // 
+            this.uložitToolStripMenuItem.Name = "uložitToolStripMenuItem";
+            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uložitToolStripMenuItem.Text = "Uložit vystup";
+            this.uložitToolStripMenuItem.Click += new System.EventHandler(this.uložitToolStripMenuItem_Click);
+            // 
+            // konfuguraceToolStripMenuItem
+            // 
+            this.konfuguraceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.načístKonfiguraciToolStripMenuItem,
+            this.uložitKonfiguraciToolStripMenuItem});
+            this.konfuguraceToolStripMenuItem.Name = "konfuguraceToolStripMenuItem";
+            this.konfuguraceToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.konfuguraceToolStripMenuItem.Text = "Konfugurace";
+            // 
+            // načístKonfiguraciToolStripMenuItem
+            // 
+            this.načístKonfiguraciToolStripMenuItem.Name = "načístKonfiguraciToolStripMenuItem";
+            this.načístKonfiguraciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.načístKonfiguraciToolStripMenuItem.Text = "Načíst konfiguraci";
+            // 
+            // uložitKonfiguraciToolStripMenuItem
+            // 
+            this.uložitKonfiguraciToolStripMenuItem.Name = "uložitKonfiguraciToolStripMenuItem";
+            this.uložitKonfiguraciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uložitKonfiguraciToolStripMenuItem.Text = "Uložit konfiguraci";
+            // 
+            // napovedaToolStripMenuItem
+            // 
+            this.napovedaToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.napovedaToolStripMenuItem.Name = "napovedaToolStripMenuItem";
+            this.napovedaToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.napovedaToolStripMenuItem.Text = "Nápověda";
+            this.napovedaToolStripMenuItem.Click += new System.EventHandler(this.nápovědaToolStripMenuItem_Click);
             // 
             // mainForm
             // 
@@ -255,9 +330,14 @@ namespace Frequency_Analysis_Of_Ciphers
             this.Controls.Add(this.tvObecnyVyskyt);
             this.Controls.Add(this.tvVyskytVTextu);
             this.Controls.Add(this.tbIN);
+            this.Controls.Add(this.MsMainMenu);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.MsMainMenu;
             this.Name = "mainForm";
-            this.Text = "Frequency analysis of ciphers";
+            this.Text = "Frekvenční analýza šifer";
+            this.MsMainMenu.ResumeLayout(false);
+            this.MsMainMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,6 +362,14 @@ namespace Frequency_Analysis_Of_Ciphers
         private System.Windows.Forms.Label lbOutputText;
         private System.Windows.Forms.Label lbInputText;
         private System.Windows.Forms.Button btClearSelectedLetterCouple;
+        private System.Windows.Forms.MenuStrip MsMainMenu;
+        private System.Windows.Forms.ToolStripMenuItem souborToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vstupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uložitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem konfuguraceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem načístKonfiguraciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uložitKonfiguraciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem napovedaToolStripMenuItem;
     }
 }
 
