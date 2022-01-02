@@ -16,6 +16,7 @@ namespace Frequency_Analysis_Of_Ciphers
         private TreeNode _lastSelectedNode1 = null;
         private TreeNode _lastSelectedNode2 = null;
         System.Threading.Timer timer = null;
+        private Size lastSize;
         public mainForm()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace Frequency_Analysis_Of_Ciphers
             tbOut.ScrollBars = ScrollBars.Vertical;
             cbSelectLanguage.SelectedIndex = 0;
             cbSorting.SelectedIndex = 0;
+            lastSize = Size;
         }
 
         private void tbIN_TextChanged(object sender, EventArgs e)
@@ -176,7 +178,7 @@ namespace Frequency_Analysis_Of_Ciphers
         private void uložitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Open Text File";
+            saveFileDialog.Title = "Save Text File";
             saveFileDialog.Filter = "TXT files|*.txt";
             saveFileDialog.DefaultExt = "txt";
             saveFileDialog.FileName = "output";
@@ -186,6 +188,36 @@ namespace Frequency_Analysis_Of_Ciphers
                 Stream stream = saveFileDialog.OpenFile();
                 StreamWriter file = new StreamWriter(stream);
                 file.Write(tbOut.Text);
+                file.Close();
+            }
+        }
+
+        private void načístKonfiguraciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open Configuration File";
+            theDialog.Filter = "CON files|*.con";
+            theDialog.InitialDirectory = @"C:\";
+            if (theDialog.ShowDialog() == DialogResult.OK)
+            {
+               letterChanger.ReadConfiguration(new StreamReader(theDialog.FileName).ReadToEnd());
+            }
+
+        }
+
+        private void uložitKonfiguraciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Save Configuration File";
+            saveFileDialog.Filter = "CON files|*.con";
+            saveFileDialog.DefaultExt = "con";
+            saveFileDialog.FileName = "configuration";
+            saveFileDialog.InitialDirectory = @"C:\";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Stream stream = saveFileDialog.OpenFile();
+                StreamWriter file = new StreamWriter(stream);
+                file.Write(letterChanger.GetConfiguration());
                 file.Close();
             }
         }
@@ -201,7 +233,5 @@ namespace Frequency_Analysis_Of_Ciphers
                 del(control);
         }
     }
-
-
 
 }

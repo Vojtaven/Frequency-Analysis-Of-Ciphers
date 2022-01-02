@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading.Tasks;
+using System.Threading;
+
+
 
 namespace Frequency_Analysis_Of_Ciphers
 {
+
     class LanguageFrequency
     {
 
@@ -63,7 +69,7 @@ namespace Frequency_Analysis_Of_Ciphers
 
         private void CreateLanguages()
         {
-
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("cs");
             string[] rawtextData = data.Split(new string[] { "\r", "\n", " " }, StringSplitOptions.RemoveEmptyEntries);
 
             for (int i = 0; i < alphabet.Length; i++)

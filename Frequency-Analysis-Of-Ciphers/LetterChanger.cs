@@ -2,6 +2,8 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System;
 using System.Windows.Forms;
 
 namespace Frequency_Analysis_Of_Ciphers
@@ -148,6 +150,31 @@ namespace Frequency_Analysis_Of_Ciphers
             }
 
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+
+        public string GetConfiguration()
+        {
+            string output = "";
+
+            foreach (changedLetter item in listOfChangedLetters)
+            {
+                output += $"{item.ToString()}\n";
+            }
+
+            return output;
+        }
+
+        public void ReadConfiguration(string input)
+        {
+            string[] data = input.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            listOfChangedLetters.Clear();
+            foreach (string item in data)
+            {
+                string[] temp = item.Split();
+                listOfChangedLetters.Add(new changedLetter(temp[0][0], temp[2][0]));
+            }
+            ChangeSavedOrinalLetterString();
+            ChangeTvContent();
         }
         private void ChangeTvContent()
         {
