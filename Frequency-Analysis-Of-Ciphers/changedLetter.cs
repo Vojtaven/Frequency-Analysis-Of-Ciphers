@@ -1,10 +1,10 @@
 ﻿namespace Frequency_Analysis_Of_Ciphers
 {
-    class changedLetter
+    class ChangedLetter
     {
         public char originalLetter;
         public char changingLetter;
-        public changedLetter(char originalLetter, char changingLetter)
+        public ChangedLetter(char originalLetter, char changingLetter)
         {
             this.changingLetter = changingLetter;
             this.originalLetter = originalLetter;

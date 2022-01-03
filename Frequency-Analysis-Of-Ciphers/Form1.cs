@@ -107,12 +107,12 @@ namespace Frequency_Analysis_Of_Ciphers
         //Funkce na zvýraznění
         private TreeNode NodeHiglight(TreeNode e, TreeNode _lastSelectedNode)
         {
-            // Select new node
+            //Zvýrazni nový uzel
             e.BackColor = SystemColors.Highlight;
             e.ForeColor = SystemColors.HighlightText;
             if (_lastSelectedNode != null)
             {
-                // Deselect old node
+                //Zruš tvýraznění u starého uzlu
                 _lastSelectedNode.BackColor = SystemColors.Window;
                 _lastSelectedNode.ForeColor = SystemColors.WindowText;
             }

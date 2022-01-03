@@ -26,7 +26,7 @@ namespace Frequency_Analysis_Of_Ciphers
             tvInUse.Invoke(t => t.ExpandAll());
         }
 
-        public void TreeViewFill(List<changedLetter> list)
+        public void TreeViewFill(List<ChangedLetter> list)
         {
             tvInUse.Invoke(t => t.Nodes.Clear());
             tvInUse.Invoke(t => t.Nodes.Add("Písmena"));

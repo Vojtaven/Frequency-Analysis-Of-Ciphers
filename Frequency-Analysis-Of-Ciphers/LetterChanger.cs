@@ -10,7 +10,7 @@ namespace Frequency_Analysis_Of_Ciphers
 {
     class LetterChanger
     {
-        List<changedLetter> listOfChangedLetters = new List<changedLetter>();
+        List<ChangedLetter> listOfChangedLetters = new List<ChangedLetter>();
         TreeViewFiller treeViewFiller;
 
         TreeView tvOriginalLetter;
@@ -96,7 +96,7 @@ namespace Frequency_Analysis_Of_Ciphers
 
 
                     if (addToList)
-                        listOfChangedLetters.Add(new changedLetter(selectedOriginalLetter, selectedChangingLetter));
+                        listOfChangedLetters.Add(new ChangedLetter(selectedOriginalLetter, selectedChangingLetter));
 
                     selectedOriginalLetter = char.MinValue;
                     selectedChangingLetter = char.MinValue;
@@ -109,7 +109,7 @@ namespace Frequency_Analysis_Of_Ciphers
         private void ChangeSavedOrinalLetterString()
         {
             savedOriginalLetters = "";
-            foreach (changedLetter item in listOfChangedLetters)
+            foreach (ChangedLetter item in listOfChangedLetters)
             {
                 savedOriginalLetters += item.originalLetter;
             }
@@ -156,9 +156,9 @@ namespace Frequency_Analysis_Of_Ciphers
         {
             string output = "";
 
-            foreach (changedLetter item in listOfChangedLetters)
+            foreach (ChangedLetter item in listOfChangedLetters)
             {
-                output += $"{item.ToString()}\n";
+                output += $"{item}\n";
             }
 
             return output;
@@ -171,7 +171,7 @@ namespace Frequency_Analysis_Of_Ciphers
             foreach (string item in data)
             {
                 string[] temp = item.Split();
-                listOfChangedLetters.Add(new changedLetter(temp[0][0], temp[2][0]));
+                listOfChangedLetters.Add(new ChangedLetter(temp[0][0], temp[2][0]));
             }
             ChangeSavedOrinalLetterString();
             ChangeTvContent();

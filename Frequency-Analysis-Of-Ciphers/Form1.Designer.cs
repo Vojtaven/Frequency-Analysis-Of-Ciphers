@@ -284,8 +284,8 @@ namespace Frequency_Analysis_Of_Ciphers
             this.načístKonfiguraciToolStripMenuItem,
             this.uložitKonfiguraciToolStripMenuItem});
             this.konfuguraceToolStripMenuItem.Name = "konfuguraceToolStripMenuItem";
-            this.konfuguraceToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
-            this.konfuguraceToolStripMenuItem.Text = "Konfugurace";
+            this.konfuguraceToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.konfuguraceToolStripMenuItem.Text = "Konfigurace";
             // 
             // načístKonfiguraciToolStripMenuItem
             // 
