@@ -10,14 +10,14 @@ namespace Frequency_Analysis_Of_Ciphers
 {
     class LetterChanger
     {
-        List<ChangedLetter> listOfChangedLetters = new List<ChangedLetter>();
-        TreeViewFiller treeViewFiller;
+        readonly List<ChangedLetter> listOfChangedLetters = new List<ChangedLetter>();
+        readonly TreeViewFiller treeViewFiller;
 
-        TreeView tvOriginalLetter;
-        TreeView tvChangingLetter;
+        readonly TreeView tvOriginalLetter;
+        readonly TreeView tvChangingLetter;
 
-        TextBox tbIn;
-        TextBox tbOut;
+        readonly TextBox tbIn;
+        readonly TextBox tbOut;
 
         private string savedOriginalLetters = "";
         private char selectedOriginalLetter;

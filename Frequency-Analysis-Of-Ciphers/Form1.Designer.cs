@@ -265,14 +265,14 @@ namespace Frequency_Analysis_Of_Ciphers
             // vstupToolStripMenuItem
             // 
             this.vstupToolStripMenuItem.Name = "vstupToolStripMenuItem";
-            this.vstupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vstupToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.vstupToolStripMenuItem.Text = "Nahrát vstup";
             this.vstupToolStripMenuItem.Click += new System.EventHandler(this.vstupToolStripMenuItem_Click);
             // 
             // uložitToolStripMenuItem
             // 
             this.uložitToolStripMenuItem.Name = "uložitToolStripMenuItem";
-            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.uložitToolStripMenuItem.Text = "Uložit vystup";
             this.uložitToolStripMenuItem.Click += new System.EventHandler(this.uložitToolStripMenuItem_Click);
             // 

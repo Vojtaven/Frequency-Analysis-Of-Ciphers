@@ -13,16 +13,16 @@ namespace Frequency_Analysis_Of_Ciphers
     class LanguageFrequency
     {
 
-        string alphabet = "abcdefghijklmnopqrstuvwxyz".ToUpper();
+        private readonly string alphabet = "abcdefghijklmnopqrstuvwxyz".ToUpper();
         private bool alphabetically = true;
-        TreeViewFiller treeViewFiller;
+        readonly TreeViewFiller treeViewFiller;
 
-        List<letterfre> nowUsing;
-        List<letterfre> english = new List<letterfre>();
-        List<letterfre> german = new List<letterfre>();
-        List<letterfre> french = new List<letterfre>();
-        List<letterfre> czech = new List<letterfre>();
-        List<letterfre> slovak = new List<letterfre>();
+        private List<letterfre> nowUsing;
+        private readonly List<letterfre> english = new List<letterfre>();
+        private readonly List<letterfre> german = new List<letterfre>();
+        private readonly List<letterfre> french = new List<letterfre>();
+        private readonly List<letterfre> czech = new List<letterfre>();
+        private readonly List<letterfre> slovak = new List<letterfre>();
 
         public LanguageFrequency(TreeView tvLanguage)
         {
@@ -82,7 +82,7 @@ namespace Frequency_Analysis_Of_Ciphers
             }
         }
 
-        private string data = @"//  En   Fr     Ge    Cz    Sk
+        private readonly string data = @"//  En   Fr     Ge    Cz    Sk
                                 A 07,96 07,68 05,52 08,99 09,49
                                 B 01,60 00,80 01,56 01,86 01,90
                                 C 02,84 03,32 02,94 03,04 03,45

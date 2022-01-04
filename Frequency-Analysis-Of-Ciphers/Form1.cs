@@ -10,14 +10,13 @@ namespace Frequency_Analysis_Of_Ciphers
     public partial class mainForm : Form
     {
         private readonly TreeViewFiller treeViewFiller = new TreeViewFiller();
-        private FrequencyCalculator frequencyCalculator;
-        private LanguageFrequency languageFrequency;
-        private LetterChanger letterChanger;
-        static int VALIDATION_DELAY = 500;
+        private readonly FrequencyCalculator frequencyCalculator;
+        private readonly LanguageFrequency languageFrequency;
+        private readonly LetterChanger letterChanger;
+        static readonly int VALIDATION_DELAY = 500;
         private TreeNode _lastSelectedNode1 = null;
         private TreeNode _lastSelectedNode2 = null;
         System.Threading.Timer timer = null;
-        private Size lastSize;
         public mainForm()
         {
             InitializeComponent();
@@ -28,7 +27,6 @@ namespace Frequency_Analysis_Of_Ciphers
             tbOut.ScrollBars = ScrollBars.Vertical;
             cbSelectLanguage.SelectedIndex = 0;
             cbSorting.SelectedIndex = 0;
-            lastSize = Size;
         }
 
         private void tbIN_TextChanged(object sender, EventArgs e)
@@ -160,10 +158,12 @@ namespace Frequency_Analysis_Of_Ciphers
 
         private void vstupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog theDialog = new OpenFileDialog();
-            theDialog.Title = "Open Text File";
-            theDialog.Filter = "TXT files|*.txt";
-            theDialog.InitialDirectory = Assembly.GetExecutingAssembly().Location;
+            OpenFileDialog theDialog = new OpenFileDialog
+            {
+                Title = "Open Text File",
+                Filter = "TXT files|*.txt",
+                InitialDirectory = Assembly.GetExecutingAssembly().Location
+            };
             if (theDialog.ShowDialog() == DialogResult.OK)
             {
                 tbIN.Text = new StreamReader(theDialog.FileName).ReadToEnd();
@@ -172,12 +172,14 @@ namespace Frequency_Analysis_Of_Ciphers
 
         private void uložitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Save Text File";
-            saveFileDialog.Filter = "TXT files|*.txt";
-            saveFileDialog.DefaultExt = "txt";
-            saveFileDialog.FileName = "output";
-            saveFileDialog.InitialDirectory = Assembly.GetExecutingAssembly().Location;
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "Save Text File",
+                Filter = "TXT files|*.txt",
+                DefaultExt = "txt",
+                FileName = "output",
+                InitialDirectory = Assembly.GetExecutingAssembly().Location
+            };
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Stream stream = saveFileDialog.OpenFile();
@@ -189,10 +191,12 @@ namespace Frequency_Analysis_Of_Ciphers
 
         private void načístKonfiguraciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog theDialog = new OpenFileDialog();
-            theDialog.Title = "Open Configuration File";
-            theDialog.Filter = "CON files|*.con";
-            theDialog.InitialDirectory = Assembly.GetExecutingAssembly().Location;
+            OpenFileDialog theDialog = new OpenFileDialog
+            {
+                Title = "Open Configuration File",
+                Filter = "CON files|*.con",
+                InitialDirectory = Assembly.GetExecutingAssembly().Location
+            };
             if (theDialog.ShowDialog() == DialogResult.OK)
             {
                letterChanger.ReadConfiguration(new StreamReader(theDialog.FileName).ReadToEnd());
@@ -202,12 +206,14 @@ namespace Frequency_Analysis_Of_Ciphers
 
         private void uložitKonfiguraciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Save Configuration File";
-            saveFileDialog.Filter = "CON files|*.con";
-            saveFileDialog.DefaultExt = "con";
-            saveFileDialog.FileName = "configuration";
-            saveFileDialog.InitialDirectory = Assembly.GetExecutingAssembly().Location;
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "Save Configuration File",
+                Filter = "CON files|*.con",
+                DefaultExt = "con",
+                FileName = "configuration",
+                InitialDirectory = Assembly.GetExecutingAssembly().Location
+            };
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Stream stream = saveFileDialog.OpenFile();
