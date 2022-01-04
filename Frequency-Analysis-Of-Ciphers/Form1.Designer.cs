@@ -57,7 +57,6 @@ namespace Frequency_Analysis_Of_Ciphers
             this.konfuguraceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.načístKonfiguraciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uložitKonfiguraciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.napovedaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MsMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -246,8 +245,7 @@ namespace Frequency_Analysis_Of_Ciphers
             this.MsMainMenu.BackColor = System.Drawing.SystemColors.Control;
             this.MsMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.souborToolStripMenuItem,
-            this.konfuguraceToolStripMenuItem,
-            this.napovedaToolStripMenuItem});
+            this.konfuguraceToolStripMenuItem});
             this.MsMainMenu.Location = new System.Drawing.Point(0, 0);
             this.MsMainMenu.Name = "MsMainMenu";
             this.MsMainMenu.Size = new System.Drawing.Size(1097, 24);
@@ -267,14 +265,14 @@ namespace Frequency_Analysis_Of_Ciphers
             // vstupToolStripMenuItem
             // 
             this.vstupToolStripMenuItem.Name = "vstupToolStripMenuItem";
-            this.vstupToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.vstupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vstupToolStripMenuItem.Text = "Nahrát vstup";
             this.vstupToolStripMenuItem.Click += new System.EventHandler(this.vstupToolStripMenuItem_Click);
             // 
             // uložitToolStripMenuItem
             // 
             this.uložitToolStripMenuItem.Name = "uložitToolStripMenuItem";
-            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.uložitToolStripMenuItem.Text = "Uložit vystup";
             this.uložitToolStripMenuItem.Click += new System.EventHandler(this.uložitToolStripMenuItem_Click);
             // 
@@ -290,24 +288,16 @@ namespace Frequency_Analysis_Of_Ciphers
             // načístKonfiguraciToolStripMenuItem
             // 
             this.načístKonfiguraciToolStripMenuItem.Name = "načístKonfiguraciToolStripMenuItem";
-            this.načístKonfiguraciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.načístKonfiguraciToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.načístKonfiguraciToolStripMenuItem.Text = "Načíst konfiguraci";
             this.načístKonfiguraciToolStripMenuItem.Click += new System.EventHandler(this.načístKonfiguraciToolStripMenuItem_Click);
             // 
             // uložitKonfiguraciToolStripMenuItem
             // 
             this.uložitKonfiguraciToolStripMenuItem.Name = "uložitKonfiguraciToolStripMenuItem";
-            this.uložitKonfiguraciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uložitKonfiguraciToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.uložitKonfiguraciToolStripMenuItem.Text = "Uložit konfiguraci";
             this.uložitKonfiguraciToolStripMenuItem.Click += new System.EventHandler(this.uložitKonfiguraciToolStripMenuItem_Click);
-            // 
-            // napovedaToolStripMenuItem
-            // 
-            this.napovedaToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
-            this.napovedaToolStripMenuItem.Name = "napovedaToolStripMenuItem";
-            this.napovedaToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.napovedaToolStripMenuItem.Text = "Nápověda";
-            this.napovedaToolStripMenuItem.Click += new System.EventHandler(this.nápovědaToolStripMenuItem_Click);
             // 
             // mainForm
             // 
@@ -371,7 +361,6 @@ namespace Frequency_Analysis_Of_Ciphers
         private System.Windows.Forms.ToolStripMenuItem konfuguraceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem načístKonfiguraciToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uložitKonfiguraciToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem napovedaToolStripMenuItem;
     }
 }
 

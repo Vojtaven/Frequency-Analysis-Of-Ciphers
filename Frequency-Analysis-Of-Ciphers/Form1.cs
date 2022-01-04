@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace Frequency_Analysis_Of_Ciphers
 {
@@ -157,18 +158,12 @@ namespace Frequency_Analysis_Of_Ciphers
             }
         }
 
-        private void nápovědaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            HelpForm help = new HelpForm();
-            help.Show();
-        }
-
         private void vstupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog theDialog = new OpenFileDialog();
             theDialog.Title = "Open Text File";
             theDialog.Filter = "TXT files|*.txt";
-            theDialog.InitialDirectory = @"C:\";
+            theDialog.InitialDirectory = Assembly.GetExecutingAssembly().Location;
             if (theDialog.ShowDialog() == DialogResult.OK)
             {
                 tbIN.Text = new StreamReader(theDialog.FileName).ReadToEnd();
@@ -182,7 +177,7 @@ namespace Frequency_Analysis_Of_Ciphers
             saveFileDialog.Filter = "TXT files|*.txt";
             saveFileDialog.DefaultExt = "txt";
             saveFileDialog.FileName = "output";
-            saveFileDialog.InitialDirectory = @"C:\";
+            saveFileDialog.InitialDirectory = Assembly.GetExecutingAssembly().Location;
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Stream stream = saveFileDialog.OpenFile();
@@ -197,7 +192,7 @@ namespace Frequency_Analysis_Of_Ciphers
             OpenFileDialog theDialog = new OpenFileDialog();
             theDialog.Title = "Open Configuration File";
             theDialog.Filter = "CON files|*.con";
-            theDialog.InitialDirectory = @"C:\";
+            theDialog.InitialDirectory = Assembly.GetExecutingAssembly().Location;
             if (theDialog.ShowDialog() == DialogResult.OK)
             {
                letterChanger.ReadConfiguration(new StreamReader(theDialog.FileName).ReadToEnd());
@@ -212,7 +207,7 @@ namespace Frequency_Analysis_Of_Ciphers
             saveFileDialog.Filter = "CON files|*.con";
             saveFileDialog.DefaultExt = "con";
             saveFileDialog.FileName = "configuration";
-            saveFileDialog.InitialDirectory = @"C:\";
+            saveFileDialog.InitialDirectory = Assembly.GetExecutingAssembly().Location;
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Stream stream = saveFileDialog.OpenFile();

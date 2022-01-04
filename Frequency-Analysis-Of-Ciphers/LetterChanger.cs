@@ -98,8 +98,8 @@ namespace Frequency_Analysis_Of_Ciphers
                     if (addToList)
                         listOfChangedLetters.Add(new ChangedLetter(selectedOriginalLetter, selectedChangingLetter));
 
-                    selectedOriginalLetter = char.MinValue;
-                    selectedChangingLetter = char.MinValue;
+                    //selectedOriginalLetter = char.MinValue;
+                    //selectedChangingLetter = char.MinValue;
                     ChangeSavedOrinalLetterString();
                     ChangeTvContent();
                 }
