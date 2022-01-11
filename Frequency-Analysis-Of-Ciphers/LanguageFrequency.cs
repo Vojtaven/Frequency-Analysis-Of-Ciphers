@@ -17,12 +17,12 @@ namespace Frequency_Analysis_Of_Ciphers
         private bool alphabetically = true;
         readonly TreeViewFiller treeViewFiller;
 
-        private List<letterfre> nowUsing;
-        private readonly List<letterfre> english = new List<letterfre>();
-        private readonly List<letterfre> german = new List<letterfre>();
-        private readonly List<letterfre> french = new List<letterfre>();
-        private readonly List<letterfre> czech = new List<letterfre>();
-        private readonly List<letterfre> slovak = new List<letterfre>();
+        private List<LetterFrequency> nowUsing;
+        private readonly List<LetterFrequency> english = new List<LetterFrequency>();
+        private readonly List<LetterFrequency> german = new List<LetterFrequency>();
+        private readonly List<LetterFrequency> french = new List<LetterFrequency>();
+        private readonly List<LetterFrequency> czech = new List<LetterFrequency>();
+        private readonly List<LetterFrequency> slovak = new List<LetterFrequency>();
 
         public LanguageFrequency(TreeView tvLanguage)
         {
@@ -74,11 +74,11 @@ namespace Frequency_Analysis_Of_Ciphers
 
             for (int i = 0; i < alphabet.Length; i++)
             {
-                english.Add(new letterfre(alphabet[i], float.Parse(rawtextData[7 + i * 6])));
-                german.Add(new letterfre(alphabet[i], float.Parse(rawtextData[8 + i * 6])));
-                french.Add(new letterfre(alphabet[i], float.Parse(rawtextData[9 + i * 6])));
-                czech.Add(new letterfre(alphabet[i], float.Parse(rawtextData[10 + i * 6])));
-                slovak.Add(new letterfre(alphabet[i], float.Parse(rawtextData[11 + i * 6])));
+                english.Add(new LetterFrequency(alphabet[i], float.Parse(rawtextData[7 + i * 6])));
+                german.Add(new LetterFrequency(alphabet[i], float.Parse(rawtextData[8 + i * 6])));
+                french.Add(new LetterFrequency(alphabet[i], float.Parse(rawtextData[9 + i * 6])));
+                czech.Add(new LetterFrequency(alphabet[i], float.Parse(rawtextData[10 + i * 6])));
+                slovak.Add(new LetterFrequency(alphabet[i], float.Parse(rawtextData[11 + i * 6])));
             }
         }
 

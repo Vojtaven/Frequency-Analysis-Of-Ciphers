@@ -63,8 +63,7 @@ namespace Frequency_Analysis_Of_Ciphers
             {
                 letterChanger.ChangeTextBox();
                 frequencyCalculator.StartCalculations();
-            }
-             ));
+            }));
         }
 
         //Mění jazyk

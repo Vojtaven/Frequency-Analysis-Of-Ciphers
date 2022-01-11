@@ -113,11 +113,11 @@ namespace Frequency_Analysis_Of_Ciphers
             this.cbSelectLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSelectLanguage.FormattingEnabled = true;
             this.cbSelectLanguage.Items.AddRange(new object[] {
-            "Czech",
-            "English",
-            "German",
-            "French",
-            "Slovak"});
+            "Čeština",
+            "Angličtina",
+            "Němčina",
+            "Francouzšťina",
+            "Slovenština"});
             this.cbSelectLanguage.Location = new System.Drawing.Point(484, 43);
             this.cbSelectLanguage.Name = "cbSelectLanguage";
             this.cbSelectLanguage.Size = new System.Drawing.Size(182, 21);
@@ -139,8 +139,8 @@ namespace Frequency_Analysis_Of_Ciphers
             this.cbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSorting.FormattingEnabled = true;
             this.cbSorting.Items.AddRange(new object[] {
-            "Alphabetically",
-            "By percentage"});
+            "Abecedně",
+            "Podle frekvence"});
             this.cbSorting.Location = new System.Drawing.Point(484, 83);
             this.cbSorting.Name = "cbSorting";
             this.cbSorting.Size = new System.Drawing.Size(182, 21);

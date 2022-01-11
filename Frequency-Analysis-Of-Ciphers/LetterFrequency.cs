@@ -2,19 +2,19 @@
 
 namespace Frequency_Analysis_Of_Ciphers
 {
-    class letterfre
+    class LetterFrequency
     {
         public char letter { get; private set; }
         public float frequency { get; private set; }
         public int count { get; private set; }
 
-        public letterfre(char letter, float frequency)
+        public LetterFrequency(char letter, float frequency)
         {
             this.letter = letter;
             this.frequency = frequency;
         }
 
-        public letterfre(int count, char letter)
+        public LetterFrequency(int count, char letter)
         {
             this.letter = letter;
             this.count = count;

@@ -15,10 +15,11 @@ namespace Frequency_Analysis_Of_Ciphers
         {
         }
 
-        public void TreeViewFill(List<letterfre> list)
+        public void TreeViewFill(List<LetterFrequency> list)
         {
             tvInUse.Invoke(t => t.Nodes.Clear());
-            tvInUse.Invoke(t => t.Nodes.Add("Písmena"));
+            if (list.Count != 0)
+                tvInUse.Invoke(t => t.Nodes.Add("Písmena"));
             for (int i = 0; i < list.Count; i++)
             {
                 tvInUse.Invoke(t => t.Nodes[0].Nodes.Add($"{list[i]} %"));
@@ -29,7 +30,8 @@ namespace Frequency_Analysis_Of_Ciphers
         public void TreeViewFill(List<ChangedLetter> list)
         {
             tvInUse.Invoke(t => t.Nodes.Clear());
-            tvInUse.Invoke(t => t.Nodes.Add("Písmena"));
+            if (list.Count != 0)
+                tvInUse.Invoke(t => t.Nodes.Add("Písmena"));
             for (int i = 0; i < list.Count; i++)
             {
                 tvInUse.Invoke(t => t.Nodes[0].Nodes.Add(list[i].ToString()));
@@ -37,12 +39,12 @@ namespace Frequency_Analysis_Of_Ciphers
             tvInUse.Invoke(t => t.ExpandAll());
         }
 
-        public void SortAlphabetically(List<letterfre> list)
+        public void SortAlphabetically(List<LetterFrequency> list)
         {
             list = list.OrderBy(o => o.GetLetter()).ToList();
             TreeViewFill(list);
         }
-        public void SortByPercentage(List<letterfre> list)
+        public void SortByPercentage(List<LetterFrequency> list)
         {
             list = list.OrderByDescending(o => o.frequency).ToList();
             TreeViewFill(list);

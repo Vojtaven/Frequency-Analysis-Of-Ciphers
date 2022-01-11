@@ -62,7 +62,7 @@ namespace Frequency_Analysis_Of_Ciphers
                 if (selectedOriginalLetter != char.MinValue)
                 {
                     bool addToList = true;
-                    if (listOfChangedLetters.Count != 0)   //Zkontroluje jestli zž kombinace není v listu a když tak jí změní
+                    if (listOfChangedLetters.Count != 0)   //Zkontroluje jestli již kombinace není v listu a když tak jí změní
                     {
                         for (int i = 0; i < listOfChangedLetters.Count; i++)
                         {
@@ -98,8 +98,6 @@ namespace Frequency_Analysis_Of_Ciphers
                     if (addToList)
                         listOfChangedLetters.Add(new ChangedLetter(selectedOriginalLetter, selectedChangingLetter));
 
-                    //selectedOriginalLetter = char.MinValue;
-                    //selectedChangingLetter = char.MinValue;
                     ChangeSavedOrinalLetterString();
                     ChangeTvContent();
                 }

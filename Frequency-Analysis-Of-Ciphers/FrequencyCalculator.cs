@@ -9,7 +9,7 @@ namespace Frequency_Analysis_Of_Ciphers
     class FrequencyCalculator
     {
         TextBox tbIN;
-        private readonly List<letterfre> letterFrequency = new List<letterfre>();
+        private readonly List<LetterFrequency> letterFrequencyList = new List<LetterFrequency>();
         private int allLetterCount = 0;
         private bool Alphabetically = true;
         TreeViewFiller treeViewFiller;
@@ -33,14 +33,14 @@ namespace Frequency_Analysis_Of_Ciphers
             {
                 if (char.IsLetter(letter))
                 {
-                    int index = letterFrequency.FindIndex(o => o.letter == letter);
+                    int index = letterFrequencyList.FindIndex(o => o.letter == letter);
                     if (index >= 0)
                     {
-                        letterFrequency[index].AddCount();
+                        letterFrequencyList[index].AddCount();
                     }
                     else
                     {
-                        letterFrequency.Add(new letterfre(1, letter));
+                        letterFrequencyList.Add(new LetterFrequency(1, letter));
                     }
                     allLetterCount++;
                 }
@@ -48,25 +48,25 @@ namespace Frequency_Analysis_Of_Ciphers
         }
         public void SortAlphabetically()
         {
-            treeViewFiller.SortAlphabetically(letterFrequency);
+            treeViewFiller.SortAlphabetically(letterFrequencyList);
             Alphabetically = true;
         }
         public void SortByPercentage()
         {
-            treeViewFiller.SortByPercentage(letterFrequency);
+            treeViewFiller.SortByPercentage(letterFrequencyList);
             Alphabetically = false;
         }
         public void ClearList()
         {
             allLetterCount = 0;
-            letterFrequency.Clear();
+            letterFrequencyList.Clear();
         }
 
         public void CalculateFrequency()
         {
-            for (int i = 0; i < letterFrequency.Count; i++)
+            for (int i = 0; i < letterFrequencyList.Count; i++)
             {
-                letterFrequency[i].CalculateFrequency(allLetterCount);
+                letterFrequencyList[i].CalculateFrequency(allLetterCount);
             }
         }
         public void FrequencyTreeViewFiller()
