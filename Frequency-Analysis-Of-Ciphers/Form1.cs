@@ -106,6 +106,7 @@ namespace Frequency_Analysis_Of_Ciphers
             else
             {
                 tvObecnyVyskyt.SelectedNode = _lastSelectedNode1;
+                NodeHiglight(_lastSelectedNode1, null);
             }
         }
 
@@ -138,6 +139,7 @@ namespace Frequency_Analysis_Of_Ciphers
             else
             {
                 tvVyskytVTextu.SelectedNode = _lastSelectedNode2;
+                NodeHiglight(_lastSelectedNode2, null);
             }
 
         }
