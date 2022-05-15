@@ -95,10 +95,17 @@ namespace Frequency_Analysis_Of_Ciphers
         //Zvýrazní označený kořen
         private void tvObecnyVyskyt_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            _lastSelectedNode1 = NodeHiglight(e.Node, _lastSelectedNode1);
-            if (tvVyskytVTextu.SelectedNode != null)
+            if (tvObecnyVyskyt.SelectedNode.Text != "Písmena")
             {
-                letterChanger.LetterChange();
+                _lastSelectedNode1 = NodeHiglight(e.Node, _lastSelectedNode1);
+                if (tvVyskytVTextu.SelectedNode != null)
+                {
+                    letterChanger.LetterChange();
+                }
+            }
+            else
+            {
+                tvObecnyVyskyt.SelectedNode = _lastSelectedNode1;
             }
         }
 
@@ -120,11 +127,19 @@ namespace Frequency_Analysis_Of_Ciphers
         //Zvýrazní označený kořen
         private void tvVyskytVTextu_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            _lastSelectedNode2 = NodeHiglight(e.Node, _lastSelectedNode2);
-            if (tvObecnyVyskyt.SelectedNode != null)
+            if (tvVyskytVTextu.SelectedNode.Text != "Písmena")
             {
-                letterChanger.LetterChange();
+                _lastSelectedNode2 = NodeHiglight(e.Node, _lastSelectedNode2);
+                if (tvObecnyVyskyt.SelectedNode != null)
+                {
+                    letterChanger.LetterChange();
+                }
             }
+            else
+            {
+                tvVyskytVTextu.SelectedNode = _lastSelectedNode2;
+            }
+
         }
 
 
@@ -140,10 +155,20 @@ namespace Frequency_Analysis_Of_Ciphers
 
         private void TvLetterChanged_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            TreeNode temp = TvLetterChanged.SelectedNode;
-            tvVyskytVTextu.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[0], tvVyskytVTextu);
-            tvObecnyVyskyt.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[5], tvObecnyVyskyt);
-            letterChanger.LetterChange();
+            if (TvLetterChanged.SelectedNode.Text != "Písmena")
+            {
+                if (TvLetterChanged.SelectedNode != null)
+                {
+                    TreeNode temp = TvLetterChanged.SelectedNode;
+                    tvVyskytVTextu.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[0], tvVyskytVTextu);
+                    tvObecnyVyskyt.SelectedNode = treeViewFiller.FindNodeByLetter(temp.Text[5], tvObecnyVyskyt);
+                    letterChanger.LetterChange();
+                }
+            }
+            else
+            {
+                TvLetterChanged.SelectedNode = null;
+            }
         }
 
         private void btClearSelectedLetterCouple_Click(object sender, EventArgs e)
